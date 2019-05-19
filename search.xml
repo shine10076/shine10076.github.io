@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[HTTP的缺点和采取措施]]></title>
+    <url>%2F2019%2F05%2F19%2FHTTP%E7%9A%84%E7%BC%BA%E7%82%B9%E5%92%8C%E9%87%87%E5%8F%96%E6%8E%AA%E6%96%BD%2F</url>
+    <content type="text"><![CDATA[HTTP的缺点和采取的措施1http的主要不足 通信使用明文，内容可能会被窃听。 不验证通信方身份，可能遭遇伪装。 无法证明报文完整性,可能遭到篡改。 2http加密处理措施 通信的加密：通过SSL(secure socket layer)或者TLS(Transport Layer Security安全传输协议)的组合使用。 内容的加密：通过对通信传输内容本身加密，报文主题的内容被加密处理，这需要客户端和服务端同时具有加密和解密的能力。 3http验证通信方身份措施 HTTP协议不存在验证通信方的处理步骤，任何人都可以发送请求，无法确定请求是否到达真正的服务器，无法确定响应是否返回到真的客户端，无法确定对方是否有访问权限，无法判断请求来源，无法阻止海量DOS攻击。 使用SSL可以查明对方的证书，SSL不仅提供加密服务，而且提供证书来确定对方，证书由值得信赖的第三方机构颁发，对于服务端和客户端，持有证书即可完成身份的确认。 4http验证报文完整性的措施 接收到的内容可能有误，因为http协议无法证明通信完整性，像这样在传输途中遭遇拦截并且篡改内容的攻击称为中间人攻击。常常使用SHA-1和MD5等散列值校验的方法以及确认文件的数字签名的方法。]]></content>
+      <categories>
+        <category>网络基础</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[你好，Hexo]]></title>
+    <url>%2F2019%2F05%2F19%2F%E4%BD%A0%E5%A5%BD%EF%BC%8CHexo%2F</url>
+    <content type="text"><![CDATA[使用Hexo，是非常简单的事情！]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
+        <tag>git</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+</search>
