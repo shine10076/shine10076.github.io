@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Redis,数据库基础,应用场景,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="KeepForwarding">
-<meta property="og:url" content="http://yoursite.com/archives/2019/05/index.html">
+<meta name="description" content="Redis使用场景1缓存作为key-value形态的内存数据库，使用Redis缓存数据非常简单，只需要通过String类型将序列化后的对象存起来即可。  序列化(Serialization):是将对象的状态信息转化为可以存储或传输的形式的过程。以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。  不过也有需要注意的地方：  必须保证不同对象的key不可以重复，并且key尽量短，一半">
+<meta name="keywords" content="Redis,数据库基础,应用场景">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis的使用场景">
+<meta property="og:url" content="http://yoursite.com/2019/05/19/Redis的使用场景/index.html">
 <meta property="og:site_name" content="KeepForwarding">
+<meta property="og:description" content="Redis使用场景1缓存作为key-value形态的内存数据库，使用Redis缓存数据非常简单，只需要通过String类型将序列化后的对象存起来即可。  序列化(Serialization):是将对象的状态信息转化为可以存储或传输的形式的过程。以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。  不过也有需要注意的地方：  必须保证不同对象的key不可以重复，并且key尽量短，一半">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-19T13:05:37.667Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KeepForwarding">
+<meta name="twitter:title" content="Redis的使用场景">
+<meta name="twitter:description" content="Redis使用场景1缓存作为key-value形态的内存数据库，使用Redis缓存数据非常简单，只需要通过String类型将序列化后的对象存起来即可。  序列化(Serialization):是将对象的状态信息转化为可以存储或传输的形式的过程。以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。  不过也有需要注意的地方：  必须保证不同对象的key不可以重复，并且key尽量短，一半">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/05/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/19/Redis的使用场景/">
 
 
 
 
 
-  <title>归档 | KeepForwarding</title>
+  <title>Redis的使用场景 | KeepForwarding</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -276,216 +281,229 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/Redis的使用场景/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shine10076">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KeepForwarding">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Redis的使用场景</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T21:03:33+08:00">
+                2019-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 7 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库基础/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库基础</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/19/Redis的使用场景/" itemprop="url">
-              
-                <span itemprop="name">Redis的使用场景</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-19T21:03:33+08:00" content="2019-05-19">
-          05-19
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/19/Redis之RDB持久化/" itemprop="url">
-              
-                <span itemprop="name">Redis之RDB持久化</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-19T21:00:35+08:00" content="2019-05-19">
-          05-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/19/Redis数据结构之简单动态字符串/" itemprop="url">
-              
-                <span itemprop="name">Redis数据结构之简单动态字符串</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-19T20:58:49+08:00" content="2019-05-19">
-          05-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h4 id="Redis使用场景"><a href="#Redis使用场景" class="headerlink" title="Redis使用场景"></a>Redis使用场景</h4><h5 id="1缓存"><a href="#1缓存" class="headerlink" title="1缓存"></a>1缓存</h5><p>作为<strong>key-value</strong>形态的内存数据库，使用Redis缓存数据非常简单，只需要通过<code>String</code>类型将序列化后的对象存起来即可。</p>
+<blockquote>
+<p>序列化(Serialization):是将对象的状态信息转化为可以存储或传输的形式的过程。以后，可以通过从存储区中读取或反<em>序列化</em>对象的状态，重新创建该对象。</p>
+</blockquote>
+<p>不过也有需要注意的地方：</p>
+<ul>
+<li>必须保证不同对象的key不可以重复，并且key尽量短，一半使用类名加主键拼接而成。</li>
+<li>选择一个有序的序列化方式也很重要，目的是提高序列化效率和减少内存占用。</li>
+<li>缓存期间的数据一致性。一半有两种做法：<ol>
+<li>只在数据库查询后将对象放入缓存，如果对象发生了删除或者修改操作，直接清除对应缓存（或者设置为过期）</li>
+<li>在数据库新增和查询后将对象放入缓存，修改后更新缓存，删除后清除对应缓存，或者设置为过期。</li>
+</ol>
+</li>
+</ul>
+<a id="more"></a>
+<h5 id="2消息队列"><a href="#2消息队列" class="headerlink" title="2消息队列"></a>2消息队列</h5><p>Redis中的<code>list</code>的数据结构实现的是双向链表，所以可以非常便捷的应用于消息队列（生产者/消费者模型）。消息的生产者只需要通过lpush将消息放入list，消费者可以通过rpop取出该消息，并且保证消息的有序性。</p>
+<p>如果需要实现带有优先级的消息队列也可以选择<strong><code>sorted list</code></strong>。而<strong><code>pub/sub</code></strong>也可以作为发布者/订阅者模型的消息。由于Redis带有持久化功能，无需担心由于服务器故障导致消息丢失的情况发生。</p>
+<blockquote>
+<p>有序集合的对象编码可以是ziplist或者skiplist</p>
+</blockquote>
+<h5 id="3时间轴"><a href="#3时间轴" class="headerlink" title="3时间轴"></a>3时间轴</h5><p>list作为双向链表，不光可以作为队列使用，如果将它用作栈便可以成为一个公用的时间轴。当用户发完微博后，都通过lpush将它存放在一个key为LATEST_WEIBO的list中。之后便可以通过lrange取出最新的微博。</p>
+<h5 id="4排行榜"><a href="#4排行榜" class="headerlink" title="4排行榜"></a>4排行榜</h5><p>使用<strong>sortedset</strong>可以轻松打造一个热度排行榜，<strong>zrevrangebyscore</strong>可以得到以分数倒序排列的序列，<strong>zrank</strong>可以得到成员在该排行榜中的作用。</p>
+<h5 id="5计数器"><a href="#5计数器" class="headerlink" title="5计数器"></a>5计数器</h5><p>计数功能应该是最适合redis的使用场景之一，高频率读写特性完全可以发挥redis作为内存数据库的高效。在Redis的数据结构中,string, hash, 和sorted set都提供了incr方法用于原子性自增操作，下面举例说明它们各自的应用场景：</p>
+<ul>
+<li><p>如果应用需要显示每天注册用户数，便可以使用<code>String</code>作为计数器，设定一个名为<code>REGISTERED_COUNT_TODAY</code>的 key，并在初始化时给它设置一个到凌晨 0 点的过期时间，每当用户注册成功后便使用<code>incr</code>命令使该 key 增长 1，同时当每天凌晨 0 点后，这个计数器都会因为 key 过期使值清零。</p>
+</li>
+<li><p>每条微博都有点赞数，评论数，转发数和浏览数四条属性，这是用<code>hash</code>进行计数会更好，该计数器的key设为为<code>weibo:weibo_id</code>，<code>hash</code>的 field 为<code>like_number</code>、<code>comment_number</code>、<code>forward_number</code>和<code>view_number</code>，在对应操作后通过<code>hincrby</code>使<code>hash 中</code>的 field 自增。</p>
+</li>
+<li><p>如果应用有一个发帖排行榜的功能，便选择<code>sorted set</code>吧，将集合的 key 设为<code>POST_RANK</code>。当用户发帖后，使用<code>zincrby</code>将该用户 id 的 score 增长 1。<code>sorted set</code>会重新进行排序，用户所</p>
+</li>
+</ul>
+<p>  在排行榜的位置也就会得到实时的更新。</p>
+<h5 id="6好友关系"><a href="#6好友关系" class="headerlink" title="6好友关系"></a>6好友关系</h5><p>一篇介绍微博Redis应用的PPT中，其中提到微博的Redis主要用在计数和好友关系两方面，</p>
+<p>《Redis设计与实现》中作者最开始使用Redis中的<code>set</code>是因为传统数据库无法计算集合的交集。</p>
+<p>对于一个用户A，将它的关注和粉丝的用户id都存放到两个set中：</p>
+<ul>
+<li><p><code>A:follow</code>:存放A所有关注的用户id</p>
+</li>
+<li><p><code>A:follower</code>:存放A所有粉丝的用户id</p>
+<p>那么通过<code>sinter</code>命令便可以根据<code>A:follow</code>和<code>A:follower</code>的交集得到与 A 互相关注的用户。当 A 进入另一个用户 B 的主页后，<code>A:follow</code>和<code>B:follow</code>的交集便是 A 和 B 的共同专注，<code>A:follow</code>和<code>B:follower</code>的交集便是 A 关注的人也关注了 B。</p>
+</li>
+</ul>
+<h5 id="7分布式锁"><a href="#7分布式锁" class="headerlink" title="7分布式锁"></a>7分布式锁</h5><p>在Redis2.6.12版本开始，<code>string</code>的set命令增加了三个参数：</p>
+<ul>
+<li><p><code>Ex</code>：设置键的过期时间（s）</p>
+</li>
+<li><p><code>Px</code>:   设置键的过期时间（ms)</p>
+</li>
+<li><p><code>NX</code>|<code>XX</code>：当设置为<code>NX</code>时，仅当key存在才进行操作，设置为xx时，仅当key不存在才会进行操作，这个操作是原子性的，可以简单实现一个分布式锁，例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set key "lock" Ex 1 xx</span><br></pre></td></tr></table></figure>
+<p>如果操作返回false,说明key的添加不成功，即当前有人占用这把锁，而如果返回true,说明得到了锁，可以继续进行操作，操作后通过<code>del</code>释放掉锁，并且即使程序因为某些原因没有释放锁，设置了过期时间，所以该锁也会在1秒后自动释放。</p>
+</li>
+</ul>
+<h5 id="8倒排索引"><a href="#8倒排索引" class="headerlink" title="8倒排索引"></a>8倒排索引</h5><p>倒排索引是构造搜索功能的最常见的方式，Redis中也可以通过set建立倒排索引，这里以简单的拼音+前缀搜索城市功能举例:</p>
+<p>假设一个城市<code>北京</code>，通过拼音词库将<code>北京</code>转为<code>beijing</code>，再通过前缀分词将这两个词分为若干个前缀索引，有：<code>北</code>、<code>北京</code>、<code>b</code>、<code>be</code>…<code>beijin</code>和<code>beijing</code>。将这些索引分别作为<code>set</code>的 key（例如:<code>index:北</code>）并存储<code>北京</code>的 id，倒排索引便建立好了。接下来只需要在搜索时通过关键词取出对应的<code>set</code>并得到其中的 id 即可。</p>
+<h5 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h5><p><a href="http://www.scienjus.com/redis-use-case/" target="_blank" rel="noopener">Redis应用场景</a></p>
+<p><a href="https://www.cnblogs.com/me115/p/3482783.html" target="_blank" rel="noopener">Redis在新浪微博中的应用</a></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/19/Redis数据结构之跳跃表/" itemprop="url">
-              
-                <span itemprop="name">Redis数据结构之跳跃表</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-19T20:42:31+08:00" content="2019-05-19">
-          05-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/19/Redis数据结构之字典/" itemprop="url">
-              
-                <span itemprop="name">Redis数据结构之字典</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-19T20:25:22+08:00" content="2019-05-19">
-          05-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i> Redis</a>
+          
+            <a href="/tags/数据库基础/" rel="tag"><i class="fa fa-tag"></i> 数据库基础</a>
+          
+            <a href="/tags/应用场景/" rel="tag"><i class="fa fa-tag"></i> 应用场景</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/19/Redis之RDB持久化/" rel="next" title="Redis之RDB持久化">
+                <i class="fa fa-chevron-left"></i> Redis之RDB持久化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/05/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/05/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -493,6 +511,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -513,8 +535,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -614,6 +645,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis使用场景"><span class="nav-number">1.</span> <span class="nav-text">Redis使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1缓存"><span class="nav-number">1.1.</span> <span class="nav-text">1缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2消息队列"><span class="nav-number">1.2.</span> <span class="nav-text">2消息队列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3时间轴"><span class="nav-number">1.3.</span> <span class="nav-text">3时间轴</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4排行榜"><span class="nav-number">1.4.</span> <span class="nav-text">4排行榜</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5计数器"><span class="nav-number">1.5.</span> <span class="nav-text">5计数器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6好友关系"><span class="nav-number">1.6.</span> <span class="nav-text">6好友关系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7分布式锁"><span class="nav-number">1.7.</span> <span class="nav-text">7分布式锁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8倒排索引"><span class="nav-number">1.8.</span> <span class="nav-text">8倒排索引</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参考文献"><span class="nav-number">1.9.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -743,6 +790,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
