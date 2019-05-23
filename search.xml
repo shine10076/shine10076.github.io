@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HTTP状态码详解]]></title>
+    <url>%2F2019%2F05%2F23%2FHTTP%E7%8A%B6%E6%80%81%E7%A0%81%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[HTTP状态码HTTP状态码类别 类别 原因短语 1XX Informational（信息性状态码) 接受的请求正在处理 2XX Success(成功性状态码) 请求正常处理完毕 3XX Redirection(重定向状态码) 需要进行附加操作以完成请求 4XX Client Error(客户端错误状态码) 服务器无法处理请求 5XX Server Error(服务器错误状态码) 服务器处理请求出错 2XX成功2xx的响应结果表示请求被正常处理。 200OK表示客户端发来的请求被服务端正常处理。 例如GET方法对应请求资源的实体作为响应返回，HEAD方法对应请求资源的实体首部不随报文主体作为响应返回。 204 No Content表示服务器接受的请求已经成功处理，但是在返回的响应报文中不包含实体的主体部分。也不允许返回任何实体主体。 1&#123;status: 0, message:""&#125; //status 0代表成功, 非零的时候, message中包含出错信息. 所以有一些服务, 只是返回成功与否的时候, 可以尝试使用HTTP的状态码来作为返回信息, 而省掉多余的数据传输, 比如REST中的DELETE和上述Ajax请求. 206 Partial Content该状态码表示客户端进行了范围请求，而服务器成功执行了这部分GET请求。响应报文中包含Content-Range指定范围的实体内容。 3XX重定向3XX表示浏览器需要执行某些特殊处理以正确处理请求。 301 Moved Permanently表示请求资源被分配了新的URI，这种对搜索引擎是友好的，一旦网页a永久定位到网页b，那么使用301重定向后，搜索引擎会将a的累积权重传到网页b。(例如Google会传大部分权重) 302 Found临时性重定向，表示该资源已被重新分配了URI，希望这次能够用新的URI访问。 303 See Other表示请求对应的资源存在另一个URI，应该使用GET方法定向获取请求资源。 303主要目的是允许POST请求的响应将客户端定位到某个资源上。比如说，在文件上传完成后让客户端自动重定向到一个上传成功的结果页面。 304 Not Modified该状态码表示客户端发送附带条件的请求时，服务端允许请求访问资源，但是未满足条件，报文中不包含任何响应的实体。 307 Temporary Redirect与302状态码有着相同的含义，但是307不会从POST变成GET。 4XX 客户端错误400 Bad Request表示报文中存在语法错误。 401 Unauthorized表示请求需要有通过HTTP认证的认证信息。 当浏览器初次接受401，会弹出认证用的对话框。 403 Forbidden表示对请求资源的访问被服务器拒绝。 比如未获得文件系统的访问授权。 404 Not Found表明服务器上无法找到请求的资源。 5XX服务器错误500 Internal Server Error该状态码表明服务器端在执行请求时发生了错误。 也有可能是 Web应用存在的 bug 或某些临时的故障。 503 Service Unavailable 表示服务器处于超负荷或者停机维护状态，无法处理请求。 参考文献《图解HTTP》上野 宣 HTTP204和205的应用 [你所知道的3xx状态码](]]></content>
+      <tags>
+        <tag>http</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[InnoDB体系架构]]></title>
     <url>%2F2019%2F05%2F21%2FInnoDB%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84%2F</url>
     <content type="text"><![CDATA[InnoDB体系架构 InnoDB是一个单进程多线程的模型。 InnoDB存储引擎分为多个内存块，可以认为这些内存块组成了一个大的内存池，负责： 维护所有进程/线程需要访问的多个内部数据结构。 缓存磁盘中的数据，方便快速的读取，同时对磁盘文件的数据修改之前在这里缓存 重做日志(redo log)缓冲 …. 后台线程的作用是负责刷新内存池中的数据，保证缓冲池中的内存缓存是最近的数据。 多线程 masterThread核心后台线程，负责将缓冲池中数据异步刷新到磁盘，保证数据一致性。包括脏页刷新，合并插入缓冲等 IO ThreadInnoDB大量使用了AIO(异步IO)来处理写IO请求，极大提升数据库性能，IO Thread的主要工作就是负责这些IO请求的回调。 Pruge Thread事务被提交后，其undolog可能不再需要，因此Pruge Thread来回收已经使用并分配的undo页。 Page Cleaner ThreadPage Cleaner Thread作用是将脏页刷新放到单独的线程中操作。 脏页：所谓脏数据是指内存中的数据没有刷新到非易失存储设备上，包括但不限于更新、插入和删除等操作都会产生脏数据。 内存 缓冲池​ InnoDB存储引擎基于磁盘存储，其中的记录按照页的方式进行管理，由于CPU速度和磁盘速度差距大，基于磁盘的数据库系统通常使用缓冲池来提升整体性能。 ​ 缓冲池是一块内存区域，在数据库中进行读取页的操作，首先将磁盘中读到的页存放到缓冲池中，下一次再读取相同页时，判断是否在缓冲池中，在直接读取该页，否则从磁盘读。 ​ 对于数据库中页修改操作，首先修改缓冲池中的页，然后再以一定的频率刷新回磁盘。 LRU List Free List和Flush List​ 数据库中缓冲池通过LRU(Latest Recent Used)来管理内存的。但InnoDB对LRU算法做了一定的改进，新增了一个midpoint位置，新读取到的点放入midPoint位置。（默认为5/8处） 若直接用原始的LRU算法，那么直接读取的页将放到LRU列表首部，那么某些SQL操作会使缓冲池页被刷新出，从而影响缓冲池效率。 ​ FreeList:在数据库刚启动时，LRU列表是空的，此时现在FreeList存放页 ​ FlushList:脏页存放于Flush列表和LRU列表中，Flush列表用于管理脏页刷新回磁盘。 重做日志缓冲InnoDB引擎首先将redo log存放到缓冲区，然后按照一定的频率刷新到重做日志文件。 checkPoint技术​ checkPoint解决以下问题 缩短数据库恢复时间 缓冲池不够用时将脏页刷新回磁盘 重做日志不可用时，刷新脏页]]></content>
