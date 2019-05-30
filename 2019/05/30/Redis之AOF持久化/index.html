@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="KeepForwarding">
 <meta property="og:description" content="Redis之AOF持久化Redis提供AOF(Append Only Files)持久化功能，RDB持久化通过保存数据库中键值对来记录数据库的状态，AOF持久化通过保存Redis服务器所执行的写命令来记录数据库状态。 Redis.conf配置 123appendfsync yes   appendfsync always     #每次有数据修改发生时都会写入AOF文件。appendfsync e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-30T12:40:19.377Z">
+<meta property="og:updated_time" content="2019-05-30T12:42:03.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis之AOF持久化">
 <meta name="twitter:description" content="Redis之AOF持久化Redis提供AOF(Append Only Files)持久化功能，RDB持久化通过保存数据库中键值对来记录数据库的状态，AOF持久化通过保存Redis服务器所执行的写命令来记录数据库状态。 Redis.conf配置 123appendfsync yes   appendfsync always     #每次有数据修改发生时都会写入AOF文件。appendfsync e">
@@ -387,6 +387,7 @@
         <h3 id="Redis之AOF持久化"><a href="#Redis之AOF持久化" class="headerlink" title="Redis之AOF持久化"></a>Redis之AOF持久化</h3><p>Redis提供AOF(Append Only Files)持久化功能，RDB持久化通过保存数据库中键值对来记录数据库的状态，AOF持久化通过保存Redis服务器所执行的写命令来记录数据库状态。</p>
 <p>Redis.conf配置</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">appendfsync yes   </span><br><span class="line">appendfsync always     #每次有数据修改发生时都会写入AOF文件。</span><br><span class="line">appendfsync everysec   #每秒钟同步一次，该策略为AOF的缺省策略。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="AOF持久化的实现"><a href="#AOF持久化的实现" class="headerlink" title="AOF持久化的实现"></a>AOF持久化的实现</h4><p>具体实现可以分为命令追加(append)，文件写入，文件同步三个步骤</p>
 <h5 id="命令追加"><a href="#命令追加" class="headerlink" title="命令追加"></a>命令追加</h5><p>当Redis服务器打开了AOF持久化时，服务器在执行完一个写命令后，会以协议的格式将被执行的写命令追加到服务器状态的aof_buf缓冲区末尾。</p>
 <h5 id="AOF文件的写入和同步"><a href="#AOF文件的写入和同步" class="headerlink" title="AOF文件的写入和同步"></a>AOF文件的写入和同步</h5><p>使用 AOF 持久化需要设置同步选项，从而确保写命令什么时候会同步到磁盘文件上。这是因为对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓冲区，然后由操作系统决定什么时候同步到磁盘。有以下同步选项：</p>
