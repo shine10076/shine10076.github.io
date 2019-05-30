@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据库基础,redis,">
 
 
 
@@ -79,14 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="Redis之AOF持久化Redis提供AOF(Append Only Files)持久化功能，RDB持久化通过保存数据库中键值对来记录数据库的状态，AOF持久化通过保存Redis服务器所执行的写命令来记录数据库状态。 Redis.conf配置 123appendfsync yes   appendfsync always     #每次有数据修改发生时都会写入AOF文件。appendfsync e">
+<meta name="keywords" content="数据库基础,redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis之AOF持久化">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/Redis之AOF持久化/index.html">
 <meta property="og:site_name" content="KeepForwarding">
+<meta property="og:description" content="Redis之AOF持久化Redis提供AOF(Append Only Files)持久化功能，RDB持久化通过保存数据库中键值对来记录数据库的状态，AOF持久化通过保存Redis服务器所执行的写命令来记录数据库状态。 Redis.conf配置 123appendfsync yes   appendfsync always     #每次有数据修改发生时都会写入AOF文件。appendfsync e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-19T10:33:13.326Z">
+<meta property="og:updated_time" content="2019-05-30T12:40:19.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="Redis之AOF持久化">
+<meta name="twitter:description" content="Redis之AOF持久化Redis提供AOF(Append Only Files)持久化功能，RDB持久化通过保存数据库中键值对来记录数据库的状态，AOF持久化通过保存Redis服务器所执行的写命令来记录数据库状态。 Redis.conf配置 123appendfsync yes   appendfsync always     #每次有数据修改发生时都会写入AOF文件。appendfsync e">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/30/Redis之AOF持久化/">
 
 
 
 
 
-  <title>分类 | KeepForwarding</title>
+  <title>Redis之AOF持久化 | KeepForwarding</title>
   
 
 
@@ -279,40 +283,212 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/Redis之AOF持久化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shine10076">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KeepForwarding">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 4 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/搭建博客/">搭建博客</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库基础/">数据库基础</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法题解/">算法题解</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络基础/">网络基础</a><span class="category-list-count">5</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Redis之AOF持久化</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-30T20:39:13+08:00">
+                2019-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库基础/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="Redis之AOF持久化"><a href="#Redis之AOF持久化" class="headerlink" title="Redis之AOF持久化"></a>Redis之AOF持久化</h3><p>Redis提供AOF(Append Only Files)持久化功能，RDB持久化通过保存数据库中键值对来记录数据库的状态，AOF持久化通过保存Redis服务器所执行的写命令来记录数据库状态。</p>
+<p>Redis.conf配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">appendfsync yes   </span><br><span class="line">appendfsync always     #每次有数据修改发生时都会写入AOF文件。</span><br><span class="line">appendfsync everysec   #每秒钟同步一次，该策略为AOF的缺省策略。</span><br></pre></td></tr></table></figure>
+<h4 id="AOF持久化的实现"><a href="#AOF持久化的实现" class="headerlink" title="AOF持久化的实现"></a>AOF持久化的实现</h4><p>具体实现可以分为命令追加(append)，文件写入，文件同步三个步骤</p>
+<h5 id="命令追加"><a href="#命令追加" class="headerlink" title="命令追加"></a>命令追加</h5><p>当Redis服务器打开了AOF持久化时，服务器在执行完一个写命令后，会以协议的格式将被执行的写命令追加到服务器状态的aof_buf缓冲区末尾。</p>
+<h5 id="AOF文件的写入和同步"><a href="#AOF文件的写入和同步" class="headerlink" title="AOF文件的写入和同步"></a>AOF文件的写入和同步</h5><p>使用 AOF 持久化需要设置同步选项，从而确保写命令什么时候会同步到磁盘文件上。这是因为对文件进行写入并不会马上将内容同步到磁盘上，而是先存储到缓冲区，然后由操作系统决定什么时候同步到磁盘。有以下同步选项：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>同步频率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>always</td>
+<td>每个写命令都同步</td>
+</tr>
+<tr>
+<td>everysec</td>
+<td>每秒同步一次</td>
+</tr>
+<tr>
+<td>no</td>
+<td>让操作系统来决定何时同步</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>always 选项会严重减低服务器的性能，每个事件循环都要将aof_buf中的内容写入到AOF文件中，但是也是最安全的，因为即使Redis宕机也只会丢失一个事件循环的所有命令数据。</li>
+<li>everysec 选项比较合适，可以保证系统崩溃时只会丢失一秒左右的数据，并且 Redis 每秒执行一次同步对服务器性能几乎没有任何影响；</li>
+<li>no 选项并不能给服务器性能带来多大的提升，而且也会增加系统崩溃时数据丢失的数量。</li>
+</ul>
+<h4 id="AOF重写"><a href="#AOF重写" class="headerlink" title="AOF重写"></a>AOF重写</h4><p>随着保存的命令越来越多，AOF文件中的内容也越来越多，而且AOF文件中的命令很有可能是冗余的，而且数据还原的时间就会越长，这时候就需要重写AOF文件来减小AOF文件的体积。</p>
+<h5 id="AOF文件重写的实现"><a href="#AOF文件重写的实现" class="headerlink" title="AOF文件重写的实现"></a>AOF文件重写的实现</h5><p>服务器为了保存数据库的状态，其实实际上不是去读取AOF文件来实现重写，而是直接读取数据库的状态，比如读取List的值并且用一条RPUSH list的命令行代替保存在AOF文件中。</p>
+<h5 id="AOF后台重写"><a href="#AOF后台重写" class="headerlink" title="AOF后台重写"></a>AOF后台重写</h5><p>在执行BGREWRITEAOF命令时，Redis服务器会维护一个AOF重写缓冲区，该缓冲区会在子进程创建AOF文件期间，记录服务器所有的写命令，当子进程完成创建后，服务器会将重写缓冲区中所有的内容追加到AOF的文件末尾。最后服务器会用新的AOF文件替换旧的AOF文件</p>
+<h4 id="Redis4-0新功能简介：RDB-AOF混合持久化"><a href="#Redis4-0新功能简介：RDB-AOF混合持久化" class="headerlink" title="Redis4.0新功能简介：RDB-AOF混合持久化"></a>Redis4.0新功能简介：RDB-AOF混合持久化</h4><p>Redis用户常常会在RDB和AOF之间陷入两难：</p>
+<ul>
+<li>RDB持久化能够快速的恢复数据，但是在服务器停机时会丢失大量的数据；</li>
+<li>AOF持久化能够有效提高数据的安全性，但是在存储和恢复方面耗费大量的时间；</li>
+</ul>
+<p>Redis 4.0 推出了一个能够“鱼和熊掌兼得”的持久化方案 —— RDB-AOF 混合持久化： 这种持久化能够通过 AOF 重写操作创建出一个同时包含 RDB 数据和 AOF 数据的 AOF 文件， 其中 RDB 数据位于 AOF 文件的开头， 它们储存了服务器开始执行重写操作时的数据库状态： 至于那些在重写操作执行之后执行的 Redis 命令， 则会继续以 AOF 格式追加到 AOF 文件的末尾， 也即是 RDB 数据之后。</p>
+<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p><a href="https://juejin.im/post/5ab5f08e518825557f00dfac" target="_blank" rel="noopener">Redis持久化RDB和AOF优缺点是什么？</a></p>
+<p><a href="https://cyc2018.github.io/CS-Notes/#/notes/Redis?id=八、持久化" target="_blank" rel="noopener">AOF和RDB持久化</a>  </p>
+<p><a href="http://blog.huangz.me/2017/redis-rdb-aof-mixed-persistence.html#redis-4-0-rdb-aof" target="_blank" rel="noopener">Redis 4.0 新功能简介：RDB-AOF 混合持久化</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库基础/" rel="tag"><i class="fa fa-tag"></i> 数据库基础</a>
+          
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/27/HTTP中的Cookie和Session/" rel="next" title="HTTP中的Cookie和Session">
+                <i class="fa fa-chevron-left"></i> HTTP中的Cookie和Session
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -345,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -446,6 +631,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis之AOF持久化"><span class="nav-number">1.</span> <span class="nav-text">Redis之AOF持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AOF持久化的实现"><span class="nav-number">1.1.</span> <span class="nav-text">AOF持久化的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#命令追加"><span class="nav-number">1.1.1.</span> <span class="nav-text">命令追加</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AOF文件的写入和同步"><span class="nav-number">1.1.2.</span> <span class="nav-text">AOF文件的写入和同步</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AOF重写"><span class="nav-number">1.2.</span> <span class="nav-text">AOF重写</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AOF文件重写的实现"><span class="nav-number">1.2.1.</span> <span class="nav-text">AOF文件重写的实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AOF后台重写"><span class="nav-number">1.2.2.</span> <span class="nav-text">AOF后台重写</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis4-0新功能简介：RDB-AOF混合持久化"><span class="nav-number">1.3.</span> <span class="nav-text">Redis4.0新功能简介：RDB-AOF混合持久化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文献"><span class="nav-number">1.4.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
