@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JVM运行时数据区域划分]]></title>
+    <url>%2F2019%2F06%2F10%2FJVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86%2F</url>
+    <content type="text"><![CDATA[JVM运行时数据区域1.程序计数器程序计数器的定义：当前线程所执行的字节码的行号指示器。通过改变计数器的值选取下一条需要执行的字节码指令。分支，循环，跳转，异常处理，线程恢复等基础功能。 java虚拟机的多线程通过线程轮流切换并且分配处理器执行时间的方式来实现的。所以线程为了能在切换后恢复正确的执行位置，每个线程都需要有一个独立的程序计数器。 因此，程序计数器是线程私有的。 2.Java虚拟机栈虚拟机栈描述的是java方法执行的内存模型。每个方法在执行的同时都会创建出一个栈帧用于存储局部变量表，操作数栈，动态链接，方法出口等信息。每一个方法从调用直至执行完成的过程，就对应着一个栈帧从入栈到出栈的过程。 3.本地方法栈本地方法栈与虚拟机栈的作用是十分相似的，区别在于本地方法栈为虚拟机使用的native方法服务。 4.Java堆java堆的定义：java堆是被所有线程共享的一块内存区域，虚拟机启动时创建，唯一目的就是存放对象实例，几乎所有的对象 实例都在这里创建。 Java堆是垃圾收集器管理的主要区域。 5.方法区与堆一样，方法区是各个线程共享的内存区域，用于存储已被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的代码等数据。 6.运行时常量池方法区的一部分，Class文件除了有类的模板，字段，方法，接口等描述信息外，还有一项信息是常量池，用于存放编译期生成的各种字面量和符号引用。]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[设计模式之单例模式]]></title>
     <url>%2F2019%2F06%2F02%2F%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[设计模式之单例模式单例模式(Singleton Pattern)是一个比较简单的模式，定义如下: Ensure a class has only one instance, and provide a global point of access to it. 确保一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 以下是单例模式的几种写法： 懒汉式–线程不安全1234567891011public class Singleton&#123; private static Singleton instance; private Singleton()&#123;&#125; public static Singleton getInstance()&#123; if(instance == null)&#123; instance = new Singleton(); &#125; return instance; &#125;&#125; 代码简洁明了，使用了懒加载模式，但是在多个线程并行调用getInstance()的时候，会创建多个实例，在多线程下不能正常工作。 懒汉式–线程安全为了解决上述问题，最简单的方法就是将整个getInstance()方法设为同步(synchronized). 123456public static synchronized Singleton getInstance()&#123; if(instance == null) &#123; instance = new Singleton(); &#125; return instance;&#125; 这种方式做到了线程安全，但是并不高效，任何时候都只能有一个线程调用getInstance()方法，同步操作只有第一次调用时才需要。于是有人引出了双重检验锁。 双重检验锁双重检验锁(double checked locking pattern)是一种使用同步块加锁的方法。我们称其为双重检验锁，因为会有两次检查instance == null，一次是在同步块外，一次是在同步块内。 为什么要检查两次，因为可能会有多个线程一起进入同步块的if，如果不进行二次检验就会生成多个实例 12345678910public static Singleton getSingleton()&#123; if(instance == null)&#123; synchronized (Singleton.class)&#123; if(instance == null)&#123; instance = new Singleton(); &#125; &#125; &#125; return instance;&#125; 这段代码看上去完美，但是还是有问题，主要在于instance = new Singleton()并非是一个原子操作，事实上在JVM中这句话大概做了3件事情： 给instance分配内存 调用Singleton 的构造函数来初始化成员变量 将instance对象指向分配的内存空间 但是在JVM的即时编译器中存在指令重排序的优化，即上述第二步和第三步的顺序是不能保证的，最终执行顺序可能是1-2-3也可能是1-3-2。如果是后者，则在3执行完毕，2未执行之前被线程二抢占，这时instance 已经是非null(没有初始化)，线程2会直接返回instance，然后使用时报错。 我们只需要将instance变量声明为volatile 12345678910111213141516public class Singleton&#123; //声明成volatile private volatile static Singleton instance; private Singleton()&#123;&#125; public static Singleton getInstance()&#123; if(instance == null)&#123; synchronized(Singleton.class)&#123; if(instance == null)&#123; instance = new Singleton(); &#125; &#125; &#125; return instance; &#125;&#125; volatile关键字的作用： 保证变量在内存中的可见性 保证程序执行的顺序，volatile关键字禁止指令重排 这里其实用到的是volatile关键字的有序性，确保JVM执行时不会进行指令重排。 饿汉式–static final field直接将单例的实例声明成static和final变量，这样在类第一次加载时就在内存中初始化，所以实例本身是线程安全的。 123456789public class Singleton&#123; //类加载时就初始化 private static final Singleton instance = new Singleton(); private Singleton()&#123;&#125; public static Singleton getInstance()&#123; return instance; &#125;&#125; 这种写法的缺点在于单例会在加载类一开始就被初始化，这导致了饿汉式在某些场景中无法使用，比如Singleton实例的创建依赖参数或者配置文件的，在getInstance()之前必须调用某个方法设置参数给它，这样这种单例写法无效了。 静态内部类 static nested class这种方法是《effective Java》上所推荐的。 12345678910public class Singleton&#123; private static class SingletonHolder&#123; private static final Singleton INSTANCE = new Singleton(); &#125; private Singleton ()&#123;&#125; public static final Singleton getInstance()&#123; return SingletonHolder.INSTANCE; &#125;&#125; 这种写法使用JVM本身的机制来保证了线程安全的问题，由于SingletonHolder是私有的，除了getInstance()方法没有办法访问到他，同时读取实例的时候不会进行同步，没有性能缺陷，不依赖于JDK版本。 枚举 Enum用枚举写单例实在太简单了！这也是它最大的优点。下面这段代码就是声明枚举实例的通常做法。 123public enum EasySingleton&#123; INSTANCE;&#125; 我们可以通过EasySingleton.INSTANCE来访问实例，这比调用getInstance()方法简单多了。创建枚举默认就是线程安全的，所以不需要担心double checked locking，而且还能防止反序列化导致重新创建新的对象。 几种创建方式的总结一般来说，单例模式有五种线程安全的写法：懒汉，饿汉，双重检验锁，静态内部类，枚举。 单例模式的使用场景在以下场景适合单例模式： 有频繁实例化然后销毁的情况。 创建对象耗时多或者消耗资源多而又使用频繁。 频繁访问IO资源的对象，例如数据库连接池或者访问本地文件。 比如说： 网站在线人数统计 这其实就是一个全局计数器，所有用户在同一时刻获取的在线人数数量都是一致的，这里包含分布式场景。下面代码简单实现一个计数器： 123456789101112131415161718192021public class Counter&#123; private static class CounterHolder&#123; private static final Counter counter = new Counter(); &#125; private Counter()&#123; System.out.println("init..."); &#125; private static final Counter getInstance()&#123; return CounterHolder.counter; &#125; private AtomicLong online = new AtomicLong(); public long getOnline()&#123; return online.get(); &#125; public long add()&#123; return online.increasementAndGet(); &#125;&#125; 配置文件访问类 项目种经常需要一些环境相关的配置文件，比如短信通知相关，邮件相关。比如使用Spring，可以使用@PropertySource注解实现，默认就是单例模式，不用单例的话，每次都要new对象，读取配置文件。 123456789101112131415161718192021222324252627282930313233343536public class SingleProperty&#123; private static Properties prop; private static class SinglePropertyHolder&#123; private static final SingleProperty singleProperty = new SingleProperty(); &#125; /** * config.properties 内容是 test.name=kite */ private SingleProperty()&#123; System.out.println("构造函数执行"); prop = new Properties(); InputStream stream = SingleProperty.class.getClassLoader() .getResourceAsStream("config.properties"); try &#123; prop.load(new InputStreamReader(stream, "utf-8")); &#125; catch (IOException e) &#123; e.printStackTrace(); &#125; &#125; public static SingleProperty getInstance()&#123; return SinglePropertyHolder.singleProperty; &#125; public String getName()&#123; return prop.get("test.name").toString(); &#125; public static void main(String[] args)&#123; SingleProperty singleProperty = SingleProperty.getInstance(); System.out.println(singleProperty.getName()); &#125;&#125; 数据库连接池的实现 做池化的原因就是新建连接十分耗时，一般做法是在应用内维护一个连接池，这样当任务进来时，如果有空闲连接可以直接拿来用，省去了初始化的开销。所以单例模式正好实现一个应用内只有一个线程池，所有的连接任务都需要从连接池里获取连接。 参考文献如何正确地写出单例模式 单例模式的使用场景]]></content>
@@ -65,9 +77,9 @@
     <url>%2F2019%2F05%2F21%2FInnoDB%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84%2F</url>
     <content type="text"><![CDATA[InnoDB体系架构 InnoDB是一个单进程多线程的模型。 InnoDB存储引擎分为多个内存块，可以认为这些内存块组成了一个大的内存池，负责： 维护所有进程/线程需要访问的多个内部数据结构。 缓存磁盘中的数据，方便快速的读取，同时对磁盘文件的数据修改之前在这里缓存 重做日志(redo log)缓冲 …. 后台线程的作用是负责刷新内存池中的数据，保证缓冲池中的内存缓存是最近的数据。 多线程 masterThread核心后台线程，负责将缓冲池中数据异步刷新到磁盘，保证数据一致性。包括脏页刷新，合并插入缓冲等 IO ThreadInnoDB大量使用了AIO(异步IO)来处理写IO请求，极大提升数据库性能，IO Thread的主要工作就是负责这些IO请求的回调。 Pruge Thread事务被提交后，其undolog可能不再需要，因此Pruge Thread来回收已经使用并分配的undo页。 Page Cleaner ThreadPage Cleaner Thread作用是将脏页刷新放到单独的线程中操作。 脏页：所谓脏数据是指内存中的数据没有刷新到非易失存储设备上，包括但不限于更新、插入和删除等操作都会产生脏数据。 内存 缓冲池​ InnoDB存储引擎基于磁盘存储，其中的记录按照页的方式进行管理，由于CPU速度和磁盘速度差距大，基于磁盘的数据库系统通常使用缓冲池来提升整体性能。 ​ 缓冲池是一块内存区域，在数据库中进行读取页的操作，首先将磁盘中读到的页存放到缓冲池中，下一次再读取相同页时，判断是否在缓冲池中，在直接读取该页，否则从磁盘读。 ​ 对于数据库中页修改操作，首先修改缓冲池中的页，然后再以一定的频率刷新回磁盘。 LRU List Free List和Flush List​ 数据库中缓冲池通过LRU(Latest Recent Used)来管理内存的。但InnoDB对LRU算法做了一定的改进，新增了一个midpoint位置，新读取到的点放入midPoint位置。（默认为5/8处） 若直接用原始的LRU算法，那么直接读取的页将放到LRU列表首部，那么某些SQL操作会使缓冲池页被刷新出，从而影响缓冲池效率。 ​ FreeList:在数据库刚启动时，LRU列表是空的，此时现在FreeList存放页 ​ FlushList:脏页存放于Flush列表和LRU列表中，Flush列表用于管理脏页刷新回磁盘。 重做日志缓冲InnoDB引擎首先将redo log存放到缓冲区，然后按照一定的频率刷新到重做日志文件。 checkPoint技术​ checkPoint解决以下问题 缩短数据库恢复时间 缓冲池不够用时将脏页刷新回磁盘 重做日志不可用时，刷新脏页]]></content>
       <tags>
-        <tag>数据库基础</tag>
         <tag>InnoDB</tag>
         <tag>MySQL</tag>
+        <tag>数据库基础</tag>
       </tags>
   </entry>
   <entry>
@@ -103,8 +115,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>数据库基础</tag>
+        <tag>Redis</tag>
         <tag>应用场景</tag>
       </tags>
   </entry>
@@ -116,8 +128,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>数据库基础</tag>
+        <tag>Redis</tag>
         <tag>持久化</tag>
       </tags>
   </entry>
@@ -129,8 +141,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>数据库基础</tag>
+        <tag>Redis</tag>
         <tag>数据结构</tag>
       </tags>
   </entry>
@@ -142,8 +154,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>数据库基础</tag>
+        <tag>Redis</tag>
         <tag>数据结构</tag>
       </tags>
   </entry>
@@ -155,8 +167,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>数据库基础</tag>
+        <tag>Redis</tag>
         <tag>数据结构</tag>
       </tags>
   </entry>
