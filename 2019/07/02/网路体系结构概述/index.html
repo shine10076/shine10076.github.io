@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="KeepForwarding">
 <meta property="og:description" content="计算机网络体系结构概述主机间的通信方式客户端(C/S):客户是服务请求方，服务器是服务提供方。 对等(P2P)：不区分客户和服务器，每个既可以充当客户端，也可以充当服务器。 电路交换和分组交换1电路交换：用于电话通信系统，两个用户在通信之前需要建立专用的物理链路，并且通信过程中始终需要占据该链路。对链路利用率很低。 2分组交换：分组都有首部和尾部，包含源地址和目的地址等控制信息（五元组:源IP地址">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-02T14:02:36.765Z">
+<meta property="og:image" content="https://camo.githubusercontent.com/b645fda06ec0c409b013418cc7699f5fd9cfad4f/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f372f32392f313634653532393330396630666133333f773d3131323026683d3135383726663d67696626733d323235333235">
+<meta property="og:updated_time" content="2019-07-03T11:40:39.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网路体系结构概述">
 <meta name="twitter:description" content="计算机网络体系结构概述主机间的通信方式客户端(C/S):客户是服务请求方，服务器是服务提供方。 对等(P2P)：不区分客户和服务器，每个既可以充当客户端，也可以充当服务器。 电路交换和分组交换1电路交换：用于电话通信系统，两个用户在通信之前需要建立专用的物理链路，并且通信过程中始终需要占据该链路。对链路利用率很低。 2分组交换：分组都有首部和尾部，包含源地址和目的地址等控制信息（五元组:源IP地址">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/b645fda06ec0c409b013418cc7699f5fd9cfad4f/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f372f32392f313634653532393330396630666133333f773d3131323026683d3135383726663d67696626733d323235333235">
 
 
 
@@ -397,6 +399,43 @@
 <h5 id="TCP-IP四层"><a href="#TCP-IP四层" class="headerlink" title="TCP/IP四层"></a>TCP/IP四层</h5><p>相当于传统五层协议中的数据链路层和物理层合并为网络接口层。</p>
 <h5 id="网络体系概述常见面试题"><a href="#网络体系概述常见面试题" class="headerlink" title="网络体系概述常见面试题"></a>网络体系概述常见面试题</h5><p>1.OSI与TCP/IP各层的结构和功能，都有那些协议?</p>
 <a id="more"></a>
+<p>结合互联网情况，自上而下 介绍各层作用。</p>
+<h5 id="1应用层"><a href="#1应用层" class="headerlink" title="1应用层"></a>1应用层</h5><p>应用层的任务是通过应用进程间的交互来完成特定网络应用。应用层协议定义的是应用进程之间的通信和交互规则。不同的网络应用需要不同应用层协议，互联网中应用层协议有：DNS，HTTP，SMTP等等，应用层交互的数据单元称为报文。</p>
+<blockquote>
+<p>域名系统：</p>
+<p>域名系统简称DNS,是因特网上的一项核心服务，作为一个将域名和ip地址相互映射的分布式的数据库，人们能够更方便的访问互联网，不需要记住ip地址。</p>
+</blockquote>
+<p><strong>HTTP协议</strong></p>
+<blockquote>
+<p>超文本传输协议是互联网上应用最为广泛的一种网络协议，所有的万维网文件都必须遵守这个标准，设计HTTP最初的目的就是提供一种发布和接受html页面的方法。</p>
+</blockquote>
+<h5 id="2传输层"><a href="#2传输层" class="headerlink" title="2传输层"></a>2传输层</h5><p>传输层的主要任务就是负责向两台主机进程之间的通信提供通用的数据传输服务。应用进程利用该服务传送应用层报文。通用的意思就是不针对某一个特定的网络应用，而是多种应用可以使用同一个传输层服务。一台主机可以运行多个线程，所以运输层有复用和分用的功能。</p>
+<p>传输层协议包括：</p>
+<p>传输控制协议TCP(Transmission Control Protocol)–提供面向连接的，可靠的数据传输服务。</p>
+<p>用户数据协议UDP(User Datagram Protocol)–提供无连接的，尽最大努力的数据传输服务。</p>
+<p>UDP：</p>
+<ol>
+<li>无连接的</li>
+<li>不保证可靠交付</li>
+<li>面向报文</li>
+<li>没有拥塞控制,</li>
+<li>一对一，一对多，多对一的交换通信</li>
+<li>UDP的首部开销小，8个字节，TCP20个字节</li>
+</ol>
+<p>TCP：</p>
+<ol>
+<li>面向连接的</li>
+<li>每一条TCP连接只能有两个端点，每一条TCP连接都是点对点的</li>
+<li>TCP提供可靠交付的服务，通过TCP连接传输的数据，无差错，不丢失，不重复，并且按序到达。</li>
+<li>TCP提供全双工的通信。TCP允许通信双方在任何时候都可以发送数据，TCP连接的两端设有发送缓存和结构缓存 来临时存放双方通信的数据。</li>
+<li>面向字节流，TCP把应用程序里的数据看作一串无结构的字节流。</li>
+</ol>
+<h5 id="3网络层"><a href="#3网络层" class="headerlink" title="3网络层"></a>3网络层</h5><p>在计算机网络中通信的两个计算机之间会有很多数据链路和通信子网，网络层的任务就是选择合适的网间路由和交换节点，确保数据能够及时传送。发送数据时，网络层把运输层产生的报文段和用户数据封装成分组和包进行传送。</p>
+<p>网络层的协议主要包括ip协议和许多路由选择协议。</p>
+<h5 id="4数据链路层"><a href="#4数据链路层" class="headerlink" title="4数据链路层"></a>4数据链路层</h5><p>用于两台主机之间的数据传输，总是在一段段的链路上传送的专门的链路层协议。在两个相邻节点之间传送数据时，<strong>数据链路层将网络层交下来的 IP 数据报组装程帧</strong>，在两个相邻节点间的链路上传送帧。每一帧包括数据和必要的控制信息（如同步信息，地址信息，差错控制等）。</p>
+<h5 id="5物理层"><a href="#5物理层" class="headerlink" title="5物理层"></a>5物理层</h5><p>在物理层上传送的数据单位是比特，实现了相邻计算机结点之间比特流的透明传输，尽可能屏蔽掉实际电路传送后比特流没有发生变化。</p>
+<p><img src="https://camo.githubusercontent.com/b645fda06ec0c409b013418cc7699f5fd9cfad4f/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f372f32392f313634653532393330396630666133333f773d3131323026683d3135383726663d67696626733d323235333235" alt></p>
+
       
     </div>
     
@@ -606,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机网络体系结构概述"><span class="nav-number">1.</span> <span class="nav-text">计算机网络体系结构概述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主机间的通信方式"><span class="nav-number">1.1.</span> <span class="nav-text">主机间的通信方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#电路交换和分组交换"><span class="nav-number">1.2.</span> <span class="nav-text">电路交换和分组交换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时延"><span class="nav-number">1.3.</span> <span class="nav-text">时延</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#五层协议"><span class="nav-number">1.4.</span> <span class="nav-text">五层协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP-IP四层"><span class="nav-number">1.5.</span> <span class="nav-text">TCP/IP四层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网络体系概述常见面试题"><span class="nav-number">1.6.</span> <span class="nav-text">网络体系概述常见面试题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算机网络体系结构概述"><span class="nav-number">1.</span> <span class="nav-text">计算机网络体系结构概述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#主机间的通信方式"><span class="nav-number">1.1.</span> <span class="nav-text">主机间的通信方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#电路交换和分组交换"><span class="nav-number">1.2.</span> <span class="nav-text">电路交换和分组交换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时延"><span class="nav-number">1.3.</span> <span class="nav-text">时延</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#五层协议"><span class="nav-number">1.4.</span> <span class="nav-text">五层协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCP-IP四层"><span class="nav-number">1.5.</span> <span class="nav-text">TCP/IP四层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网络体系概述常见面试题"><span class="nav-number">1.6.</span> <span class="nav-text">网络体系概述常见面试题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1应用层"><span class="nav-number">1.7.</span> <span class="nav-text">1应用层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2传输层"><span class="nav-number">1.8.</span> <span class="nav-text">2传输层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3网络层"><span class="nav-number">1.9.</span> <span class="nav-text">3网络层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4数据链路层"><span class="nav-number">1.10.</span> <span class="nav-text">4数据链路层</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5物理层"><span class="nav-number">1.11.</span> <span class="nav-text">5物理层</span></a></li></ol></li></ol></div>
             
 
           </div>
