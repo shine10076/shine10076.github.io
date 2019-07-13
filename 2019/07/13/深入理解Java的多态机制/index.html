@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数据库基础,Redis,数据结构,">
+  <meta name="keywords" content="JVM,Java,">
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="Redis数据结构之跳跃表1.跳跃表的定义跳跃表是一种有序数据结构，通过每个节点中维持多个指向其他节点的指针，从而达到快速访问节点的目的。 支持平均O(logN)，最坏时间复杂度为O(N)复杂度的节点查找，还可以通过顺序性操作批量处理节点。 跳跃表在Redis里的用处：一是实现有序集合，另一个是在集群节点中用作内部数据结构。">
-<meta name="keywords" content="数据库基础,Redis,数据结构">
+<meta name="description" content="Java多态原理和使用多态的概念面向对象有三大特性，继承，封装，多态。 多态表示指在编程中不能确定引用对象指向的具体类型或是方法调用，而要在程序运行时才能确定。 该引用变量的方法调用到底是那个类实现的方法，必须在程序运行期间才能确定，这样不用修改程序源码就可以让引用变量动态的绑定到不同的类实现上从而导致该引用调用的方法随之改变。 不修改程序代码就可以改变程序运行时绑定的具体代码，程序可以选择多个运">
+<meta name="keywords" content="JVM,Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis数据结构之跳跃表">
-<meta property="og:url" content="http://yoursite.com/2019/05/19/Redis数据结构之跳跃表/index.html">
+<meta property="og:title" content="深入理解Java的多态机制">
+<meta property="og:url" content="http://yoursite.com/2019/07/13/深入理解Java的多态机制/index.html">
 <meta property="og:site_name" content="KeepForwarding">
-<meta property="og:description" content="Redis数据结构之跳跃表1.跳跃表的定义跳跃表是一种有序数据结构，通过每个节点中维持多个指向其他节点的指针，从而达到快速访问节点的目的。 支持平均O(logN)，最坏时间复杂度为O(N)复杂度的节点查找，还可以通过顺序性操作批量处理节点。 跳跃表在Redis里的用处：一是实现有序集合，另一个是在集群节点中用作内部数据结构。">
+<meta property="og:description" content="Java多态原理和使用多态的概念面向对象有三大特性，继承，封装，多态。 多态表示指在编程中不能确定引用对象指向的具体类型或是方法调用，而要在程序运行时才能确定。 该引用变量的方法调用到底是那个类实现的方法，必须在程序运行期间才能确定，这样不用修改程序源码就可以让引用变量动态的绑定到不同的类实现上从而导致该引用调用的方法随之改变。 不修改程序代码就可以改变程序运行时绑定的具体代码，程序可以选择多个运">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdn.net/20180509103937329">
-<meta property="og:updated_time" content="2019-05-19T12:47:34.847Z">
+<meta property="og:image" content="http://static.zybuluo.com/csqiang1992/6i7r32fefnhgwd3a221eo9zj/jvm-structure.png">
+<meta property="og:updated_time" content="2019-07-13T12:03:37.112Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis数据结构之跳跃表">
-<meta name="twitter:description" content="Redis数据结构之跳跃表1.跳跃表的定义跳跃表是一种有序数据结构，通过每个节点中维持多个指向其他节点的指针，从而达到快速访问节点的目的。 支持平均O(logN)，最坏时间复杂度为O(N)复杂度的节点查找，还可以通过顺序性操作批量处理节点。 跳跃表在Redis里的用处：一是实现有序集合，另一个是在集群节点中用作内部数据结构。">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180509103937329">
+<meta name="twitter:title" content="深入理解Java的多态机制">
+<meta name="twitter:description" content="Java多态原理和使用多态的概念面向对象有三大特性，继承，封装，多态。 多态表示指在编程中不能确定引用对象指向的具体类型或是方法调用，而要在程序运行时才能确定。 该引用变量的方法调用到底是那个类实现的方法，必须在程序运行期间才能确定，这样不用修改程序源码就可以让引用变量动态的绑定到不同的类实现上从而导致该引用调用的方法随之改变。 不修改程序代码就可以改变程序运行时绑定的具体代码，程序可以选择多个运">
+<meta name="twitter:image" content="http://static.zybuluo.com/csqiang1992/6i7r32fefnhgwd3a221eo9zj/jvm-structure.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/19/Redis数据结构之跳跃表/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/13/深入理解Java的多态机制/">
 
 
 
 
 
-  <title>Redis数据结构之跳跃表 | KeepForwarding</title>
+  <title>深入理解Java的多态机制 | KeepForwarding</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/Redis数据结构之跳跃表/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/13/深入理解Java的多态机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shine10076">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Redis数据结构之跳跃表</h1>
+          <h1 class="post-title" itemprop="name headline">深入理解Java的多态机制</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T20:42:31+08:00">
-                2019-05-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-13T20:01:22+08:00">
+                2019-07-13
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库基础/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库基础</span>
+                  <a href="/categories/面向对象基础/" itemprop="url" rel="index">
+                    <span itemprop="name">面向对象基础</span>
                   </a>
                 </span>
 
@@ -386,44 +386,77 @@
       
 
       
-        <h3 id="Redis数据结构之跳跃表"><a href="#Redis数据结构之跳跃表" class="headerlink" title="Redis数据结构之跳跃表"></a>Redis数据结构之跳跃表</h3><h5 id="1-跳跃表的定义"><a href="#1-跳跃表的定义" class="headerlink" title="1.跳跃表的定义"></a>1.跳跃表的定义</h5><p>跳跃表是一种有序数据结构，通过每个节点中维持多个指向其他节点的指针，从而达到快速访问节点的目的。</p>
-<p>支持平均O(logN)，最坏时间复杂度为O(N)复杂度的节点查找，还可以通过顺序性操作批量处理节点。</p>
-<p><strong>跳跃表在Redis里的用处：一是实现有序集合，另一个是在集群节点中用作内部数据结构。</strong></p>
+        <h4 id="Java多态原理和使用"><a href="#Java多态原理和使用" class="headerlink" title="Java多态原理和使用"></a>Java多态原理和使用</h4><h5 id="多态的概念"><a href="#多态的概念" class="headerlink" title="多态的概念"></a>多态的概念</h5><p>面向对象有三大特性，继承，封装，多态。</p>
+<p>多态表示指在编程中不能确定引用对象指向的具体类型或是方法调用，而要在程序运行时才能确定。</p>
+<p>该引用变量的方法调用到底是那个类实现的方法，必须在程序运行期间才能确定，这样不用修改程序源码就可以让引用变量动态的绑定到不同的类实现上从而导致该引用调用的方法随之改变。</p>
+<p>不修改程序代码就可以改变程序运行时绑定的具体代码，程序可以选择多个运行状态，这就是面向对象语言的多态性。</p>
+<p>多态主要分为编译时的多态和运行时的多态。</p>
 <a id="more"></a>
-<h5 id="2-跳跃表的实现"><a href="#2-跳跃表的实现" class="headerlink" title="2.跳跃表的实现"></a>2.跳跃表的实现</h5><p>Redis的跳跃表由zskiplistNode和zskiplist两个结构定义。跳跃表结构如下</p>
-<p><img src="https://img-blog.csdn.net/20180509103937329" alt="redis跳跃表"></p>
-<p>左边的是zskiplist结构，该结构包含以下属性：</p>
+<h5 id="一个典型的多态问题"><a href="#一个典型的多态问题" class="headerlink" title="一个典型的多态问题"></a>一个典型的多态问题</h5><p>相关类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(D obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">"A and D"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(A obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="string">"A and A"</span>);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">         <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(B obj)</span></span>&#123;</span><br><span class="line">                <span class="keyword">return</span> (<span class="string">"B and B"</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">(A obj)</span></span>&#123;</span><br><span class="line">                <span class="keyword">return</span> (<span class="string">"B and A"</span>);</span><br><span class="line">         &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span></span>&#123;&#125; </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> <span class="keyword">extends</span> <span class="title">B</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>问题：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">        A a1 = <span class="keyword">new</span> A();</span><br><span class="line">        A a2 = <span class="keyword">new</span> B();</span><br><span class="line">        B b = <span class="keyword">new</span> B();</span><br><span class="line">        C c = <span class="keyword">new</span> C(); </span><br><span class="line">        D d = <span class="keyword">new</span> D(); </span><br><span class="line">        System.out.println(a1.show(b));   ①</span><br><span class="line">        System.out.println(a1.show(c));   ②</span><br><span class="line">        System.out.println(a1.show(d));   ③</span><br><span class="line">        System.out.println(a2.show(b));   ④</span><br><span class="line">        System.out.println(a2.show(c));   ⑤</span><br><span class="line">        System.out.println(a2.show(d));   ⑥</span><br><span class="line">        System.out.println(b.show(b));     ⑦</span><br><span class="line">        System.out.println(b.show(c));     ⑧</span><br><span class="line">        System.out.println(b.show(d));     ⑨</span><br></pre></td></tr></table></figure>
+<p>答案如下：</p>
+<ol>
+<li>A and A</li>
+<li>A and A</li>
+<li>A and D</li>
+<li>B and A</li>
+<li>B and A</li>
+<li>A and D</li>
+<li>B and B</li>
+<li>B and B</li>
+<li>A and D</li>
+</ol>
+<p>一般来说，方法调用的优先级如下：</p>
+<p><code>this.show(O)、super.show(O)、this.show((super)O)、super.show((super)O).</code></p>
+<p>比如说4，因为a1指向的是一个B的对象，所以B重写了A中show(A obj)方法，所以实际会调用B中show(A obj)方法。</p>
+<h5 id="重写和重载"><a href="#重写和重载" class="headerlink" title="重写和重载"></a>重写和重载</h5><p>运行时的多态性时面向对象程序设计语言设计代码宠用的一个最强大的特性，动态性的概念可以描述为“一个接口，多个方法”。</p>
+<p>Java实现运行时多态性的基础是动态方法调度，是一种在运行时而不是在编译期调用重载方法的机制。</p>
+<p>方法的重写(Overriding)和方法的重载(Overloading)是Java多态性的不同表现。</p>
 <ul>
-<li>header:指向跳跃表的表头节点。</li>
-<li>tail：指向跳跃表的表尾节点。</li>
-<li>level：记录目前跳跃表中节点最大的层数。（不包含表头节点）</li>
-<li>length：记录跳跃表的长度，跳跃表目前的节点数量。（不包含表头节点）</li>
+<li>Overriding 是父类和子类之间多态性的一种表现，重写是指子类中定义的某个方法与其父类有相同的名称和参数，我们说该方法被重写(overrding)。子类对象使用该方法时，将调用子类中的定义，对于父类的定义如同被屏蔽了。</li>
+<li>Overloading是指在一个类中定义了多个同名的方法，或者有不同的参数个数，或者有不同的参数类型，则称为方法的重载。Overloaded的方法还可以改变返回值的类型。</li>
 </ul>
-<p>其余四个结构是zskiplistNode结构，包含以下属性：</p>
+<h5 id="多态的缺陷"><a href="#多态的缺陷" class="headerlink" title="多态的缺陷"></a>多态的缺陷</h5><p>向上转型是有局限性的：在向上转型中，<strong>可以调用的方法就是父类中有的，但是子类中没有的方法，和子类中重写父类的方法</strong>。</p>
+<p>多态代码的第一个缺陷</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Instrument</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"Instrument play"</span>);  &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Instrument ins = <span class="keyword">new</span> Piano();</span><br><span class="line">        ins.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Piano</span> <span class="keyword">extends</span> <span class="title">Instrument</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123; System.out.println(<span class="string">"Piano play"</span>); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//output</span><br><span class="line">Intrument play</span><br></pre></td></tr></table></figure>
+<p>这里子类对象实例化后赋值给父类对象，这里就是向上转型，那么根据向上转型的特点，ins可以调用父类中有，而子类没有的方法和子类重写的方法.</p>
+<p>但是这里父类是private 方法，而private方法默认为final方法，final类方法不可以被继承，这旧说明Piano类中的play方法是一个全新的方法，所以ins不能调用子类的play()方法。</p>
+<p>第二个缺陷：域和静态方法， 域和静态方法和多态无关。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Super</span> </span>&#123;  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> field = <span class="number">0</span>;  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getField</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> field; &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Super</span> </span>&#123;  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> field = <span class="number">1</span>;  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getField</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> field; &#125;  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSuperField</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="keyword">super</span>.field; &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FieldAccess</span> </span>&#123;  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;  </span><br><span class="line">    Super sup = <span class="keyword">new</span> Sub(); <span class="comment">// Upcast  </span></span><br><span class="line">    System.out.println(<span class="string">"sup.field = "</span> + sup.field +  </span><br><span class="line">      <span class="string">", sup.getField() = "</span> + sup.getField());  </span><br><span class="line">    Sub sub = <span class="keyword">new</span> Sub();  </span><br><span class="line">    System.out.println(<span class="string">"sub.field = "</span> +  </span><br><span class="line">      sub.field + <span class="string">", sub.getField() = "</span> +  </span><br><span class="line">      sub.getField() +  </span><br><span class="line">      <span class="string">", sub.getSuperField() = "</span> +  </span><br><span class="line">      sub.getSuperField());  </span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output: </span></span><br><span class="line">sup.field = <span class="number">0</span>, sup.getField() = <span class="number">1</span> </span><br><span class="line">sub.field = <span class="number">1</span>, sub.getField() = <span class="number">1</span>, sub.getSuperField() = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>这段代表表明了当父类和子类拥有名称相同的域时，在向上转型时，子类的域和父类的域是不存在多态的。此外，静态方法也和多态无关。</p>
+<h5 id="Java多态的实现原理"><a href="#Java多态的实现原理" class="headerlink" title="Java多态的实现原理"></a>Java多态的实现原理</h5><p>多态允许具体访问实现方法的动态绑定，Java对于动态绑定的实现主要依赖于方法表，通过继承和接口的多态实现有所不同。</p>
 <ul>
-<li>level：节点用L1，L2等字样标记节点的各个层，L1代表第一层，L2第二层以此类推，每层包含两个属性：<strong>前进指针和跨度</strong>，前进指针用于访问表尾方向的其他节点，而跨度是前进指针指向节点和当前节点的距离。</li>
-<li>backward(后退指针)：节点中用BW字样标记节点的后退指针，指向位于当前节点的前一个节点。</li>
-<li>score：跳跃表节点按分值由大到小排列。</li>
-<li>obj：成员对象，指向节点保存的成员对象。</li>
+<li>继承：在执行某个方法的时候，在方法区找到该类的方法表，确认该方法在方法表中的偏移量，找到该方法后如果被重写则直接调用，否则认为没有重写父类该方法，这时候按照继承关系搜索父类的方法表中该偏移量对应的方法。</li>
+<li>接口：Java允许一个类实现多个接口，从某种意义上相当于多继承，这样同一个接口的方法在不同类的方法表中的位置可能就不一样了。要通过搜索完整的方法表。</li>
 </ul>
-<h5 id="2-1跳跃表节点"><a href="#2-1跳跃表节点" class="headerlink" title="2.1跳跃表节点"></a>2.1跳跃表节点</h5><p>redis.h/zskiplistNode</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span>&#123;</span></span><br><span class="line">    <span class="comment">//层</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistLevel</span>&#123;</span></span><br><span class="line">        <span class="comment">//前进指针</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span> *<span class="title">forward</span>;</span></span><br><span class="line">        <span class="comment">//跨度</span></span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> span;</span><br><span class="line">    &#125;level[],</span><br><span class="line">    <span class="comment">//后退指针</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span> *<span class="title">backward</span>;</span></span><br><span class="line">    <span class="comment">//分支</span></span><br><span class="line">    <span class="keyword">double</span> score;</span><br><span class="line">    <span class="comment">//成员对象,</span></span><br><span class="line">    robj *obj;</span><br><span class="line">&#125;zskiplistNode;</span><br></pre></td></tr></table></figure>
-<h6 id="层"><a href="#层" class="headerlink" title="层"></a>层</h6><p>每次创建一个新的跳跃表节点时，程序都会根据幂次定律生成一个0~32之间的数</p>
-<blockquote>
-<p>幂次定律：越大的数生成的概率越小。</p>
-</blockquote>
-<h6 id="前进指针"><a href="#前进指针" class="headerlink" title="前进指针"></a>前进指针</h6><p>用于访问表头到表尾的节点</p>
-<h6 id="跨度"><a href="#跨度" class="headerlink" title="跨度"></a>跨度</h6><p>其用途是用于计算节点在链表中的位置。</p>
-<h6 id="后退指针"><a href="#后退指针" class="headerlink" title="后退指针"></a>后退指针</h6><p>每次只能后退一个节点。</p>
-<h6 id="分值和成员"><a href="#分值和成员" class="headerlink" title="分值和成员"></a>分值和成员</h6><p>分值用于节点间的排序。</p>
-<p>成员对象指向一个字符串，字符串对象存放着一个SDS值。这个值代表着具体的对象类型。</p>
-<h5 id="2-2跳跃表实现"><a href="#2-2跳跃表实现" class="headerlink" title="2.2跳跃表实现"></a>2.2跳跃表实现</h5><p>redis.h/zskiplist</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">zskiplist</span>&#123;</span></span><br><span class="line">  <span class="comment">//表头节点和表尾节点</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span> *<span class="title">header</span>, *<span class="title">tail</span>;</span></span><br><span class="line">  <span class="comment">//节点数量</span></span><br><span class="line">  <span class="keyword">int</span> length;</span><br><span class="line">  <span class="comment">//表中层数最大的节点的层数</span></span><br><span class="line">  <span class="keyword">int</span> level;</span><br><span class="line">&#125;zskiplist;</span><br></pre></td></tr></table></figure>
-<h5 id="3总结"><a href="#3总结" class="headerlink" title="3总结"></a>3总结</h5><p>跳跃表是有序集合的底层实现之一(另一个是压缩列表)。</p>
-<p>跳跃表由zskiplist和zskiplistNode两个节点实现。</p>
-<p>每个跳跃表节点的层高是1~32之间的随机数。</p>
-<p>多个节点可以包含相同的分值，但每个节点的成员对象是唯一的。</p>
-<p>跳跃表中节点按分值大小排序，分值相同的按对象大小排序。</p>
+<p>在JVM中：</p>
+<ul>
+<li><p>当程序运行需要某个类的时候，类加载器会将对应的class文件加载到JVM中，并且在方法区建立该类的类型信息（包括方法代码，类变量，成员变量和方法表）。</p>
+</li>
+<li><p>方法表是实现动态调用的核心，为了优化对象调用方法的速度，方法区的类型信息会增加一个指针，指向记录该类方法的方法表。</p>
+<p><img src="http://static.zybuluo.com/csqiang1992/6i7r32fefnhgwd3a221eo9zj/jvm-structure.png" alt></p>
+</li>
+</ul>
+<p>Java的方法调用方式</p>
+<ul>
+<li>Java方法调用有两类<ul>
+<li>静态方法调用是指对类的静态方法的调用，是静态绑定的。而动态方法调用需要有方法调用所作用的对象，是动态绑定的。</li>
+<li>类调用：在编译时就已经确定号具体调用方法的情况。</li>
+<li>实例调用：则是在调用的时候才确定具体的调用方法，这就是动态绑定，也是多态要解决的核心问题。</li>
+</ul>
+</li>
+</ul>
+<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><ul>
+<li><a href="https://juejin.im/entry/59cdcb0b6fb9a00a5f47155b" target="_blank" rel="noopener">深入理解java多态性</a></li>
+<li><a href="http://blog.csdn.net/jianyuerensheng/article/details/51602015" target="_blank" rel="noopener">面向对象编程三大特性——封装、继承、多态</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/java-enhancement/java-three.html" target="_blank" rel="noopener">理解 Java 的三大特性之多态</a></li>
+<li><a href="http://blog.csdn.net/seu_calvin/article/details/52191321" target="_blank" rel="noopener">Java技术——多态的实现原理</a></li>
+<li><a href="http://blog.csdn.net/qc_liu/article/details/42584099" target="_blank" rel="noopener">多态在JVM中的实现——invokevirtual与invokespecial</a></li>
+</ul>
 
       
     </div>
@@ -441,11 +474,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据库基础/" rel="tag"><i class="fa fa-tag"></i> 数据库基础</a>
+            <a href="/tags/JVM/" rel="tag"><i class="fa fa-tag"></i> JVM</a>
           
-            <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i> Redis</a>
-          
-            <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           
         </div>
       
@@ -458,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/19/Redis数据结构之字典/" rel="next" title="Redis数据结构之字典">
-                <i class="fa fa-chevron-left"></i> Redis数据结构之字典
+              <a href="/2019/07/11/浏览器输入URL到获取网页的过程/" rel="next" title="浏览器输入URL到获取网页的过程">
+                <i class="fa fa-chevron-left"></i> 浏览器输入URL到获取网页的过程
               </a>
             
           </div>
@@ -467,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/19/Redis数据结构之简单动态字符串/" rel="prev" title="Redis数据结构之简单动态字符串">
-                Redis数据结构之简单动态字符串 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -642,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis数据结构之跳跃表"><span class="nav-number">1.</span> <span class="nav-text">Redis数据结构之跳跃表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-跳跃表的定义"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.跳跃表的定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-跳跃表的实现"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.跳跃表的实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1跳跃表节点"><span class="nav-number">1.0.3.</span> <span class="nav-text">2.1跳跃表节点</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#层"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">层</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#前进指针"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">前进指针</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#跨度"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">跨度</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#后退指针"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">后退指针</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#分值和成员"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">分值和成员</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2跳跃表实现"><span class="nav-number">1.0.4.</span> <span class="nav-text">2.2跳跃表实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3总结"><span class="nav-number">1.0.5.</span> <span class="nav-text">3总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java多态原理和使用"><span class="nav-number">1.</span> <span class="nav-text">Java多态原理和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#多态的概念"><span class="nav-number">1.1.</span> <span class="nav-text">多态的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一个典型的多态问题"><span class="nav-number">1.2.</span> <span class="nav-text">一个典型的多态问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重写和重载"><span class="nav-number">1.3.</span> <span class="nav-text">重写和重载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多态的缺陷"><span class="nav-number">1.4.</span> <span class="nav-text">多态的缺陷</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Java多态的实现原理"><span class="nav-number">1.5.</span> <span class="nav-text">Java多态的实现原理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文献"><span class="nav-number">2.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
