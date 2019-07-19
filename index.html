@@ -533,7 +533,7 @@
 
       
         
-          <h4 id="浏览器输入URL到获取网页的过程"><a href="#浏览器输入URL到获取网页的过程" class="headerlink" title="浏览器输入URL到获取网页的过程"></a>浏览器输入URL到获取网页的过程</h4><p><img src="https://upload-images.jianshu.io/upload_images/2075673-3afda32a13a68c6b.png" alt></p>
+          <h4 id="浏览器输入URL到获取网页的过程"><a href="#浏览器输入URL到获取网页的过程" class="headerlink" title="浏览器输入URL到获取网页的过程"></a>浏览器输入URL到获取网页的过程</h4><p><img src="https://i.loli.net/2019/07/19/5d314cd5071a651301.png" alt></p>
 <p>上面这张图大致描述了浏览器输入URL之后发生了什么。下面梳理一下详细的流程。</p>
 <p>在条件是：</p>
 <ul>
@@ -984,6 +984,7 @@
 <p>因此，程序计数器是线程私有的。    </p>
 <p><strong>执行状态</strong>： 当一个线程正在执行一个Java方法的时候，这个计数器记录的是正在执行的虚拟机字节码指令的地址。如果执行是Native方法，那么计数器值为空。此内存区域是唯一一个在Java虚拟机规范中没有规定任何OutMemoryError的区域。</p>
 <h5 id="2-Java虚拟机栈"><a href="#2-Java虚拟机栈" class="headerlink" title="2.Java虚拟机栈"></a>2.Java虚拟机栈</h5><p>虚拟机栈描述的是java方法执行的内存模型。每个方法在执行的同时都会创建出一个栈帧用于存储<strong>局部变量表，操作数栈，动态链接，方法出口</strong>等信息。每一个方法从调用直至执行完成的过程，就对应着一个栈帧从入栈到出栈的过程。</p>
+<p><strong>局部变量表：</strong>存放了编译器可知的各种数据类型(boolean,byte,char,short,int, long ,float, double)，对象引用。</p>
 <h5 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3.本地方法栈"></a>3.本地方法栈</h5><p>本地方法栈与虚拟机栈的作用是十分相似的，区别在于本地方法栈为虚拟机使用的native方法服务。</p>
 <h5 id="4-Java堆"><a href="#4-Java堆" class="headerlink" title="4.Java堆"></a>4.Java堆</h5><p>java堆的定义：java堆是被所有线程共享的一块内存区域，虚拟机启动时创建，唯一目的就是存放对象实例，几乎所有的对象 实例都在这里创建。</p>
 <p>Java堆是垃圾收集器管理的主要区域。</p>
