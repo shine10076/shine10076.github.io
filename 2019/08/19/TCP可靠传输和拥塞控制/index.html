@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="http,web,密码学,">
+  <meta name="keywords" content="网络基础,TCP,">
 
 
 
@@ -79,23 +79,23 @@
 
 
 
-<meta name="description" content="HTTPS中的TLSSSL与TLSSSL：(Secure Socket Layer)安全套接层。 TLS：(Transport Layer Security)传输层安全协议，是IETF在SSL3.0的基础上设计的协议。 从网络协议的角度理解HTTPS HTTP：HyperText Transfer Protocol 超文本传输协议HTTPS：Hypertext Transfer Protocol">
-<meta name="keywords" content="http,web,密码学">
+<meta name="description" content="TCP可靠传输和拥塞控制机制TCP可靠传输数据流传输方式TCP数据一般分为：交互数据和成块数据，交互数据一般比较小，比如发送一个字节的交互数据，加上TCP数据段首部以及IP数据包首部，至少需要41个字节。 交互数据流传输互联网早期通信链路并不可靠，因此在链路层传输数据的时候要采取可靠的传输协议。其中最简单的为停止等待协议。传输层并不使用停止等待协议，但是传输交互数据流传输时采用nagle算法和该协">
+<meta name="keywords" content="网络基础,TCP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTPS中的TLS">
-<meta property="og:url" content="http://yoursite.com/2019/05/20/HTTPS中的TLS/index.html">
+<meta property="og:title" content="TCP可靠传输和拥塞控制">
+<meta property="og:url" content="http://yoursite.com/2019/08/19/TCP可靠传输和拥塞控制/index.html">
 <meta property="og:site_name" content="KeepForwarding">
-<meta property="og:description" content="HTTPS中的TLSSSL与TLSSSL：(Secure Socket Layer)安全套接层。 TLS：(Transport Layer Security)传输层安全协议，是IETF在SSL3.0的基础上设计的协议。 从网络协议的角度理解HTTPS HTTP：HyperText Transfer Protocol 超文本传输协议HTTPS：Hypertext Transfer Protocol">
+<meta property="og:description" content="TCP可靠传输和拥塞控制机制TCP可靠传输数据流传输方式TCP数据一般分为：交互数据和成块数据，交互数据一般比较小，比如发送一个字节的交互数据，加上TCP数据段首部以及IP数据包首部，至少需要41个字节。 交互数据流传输互联网早期通信链路并不可靠，因此在链路层传输数据的时候要采取可靠的传输协议。其中最简单的为停止等待协议。传输层并不使用停止等待协议，但是传输交互数据流传输时采用nagle算法和该协">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://camo.githubusercontent.com/4e3af713377550421537b4dadd4945fceec04722/68747470733a2f2f6c6572616e32646565706c6561726e6a617661776562746563682e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f736f6d6570686f746f2f2545342542382538332545352542312538322e706e67">
-<meta property="og:image" content="https://camo.githubusercontent.com/e28a26b73b7e71996534e7f20d82cd27831a818f/68747470733a2f2f6c6572616e32646565706c6561726e6a617661776562746563682e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f736f6d6570686f746f2f746c732545362542352538312545372541382538422e706e67">
-<meta property="og:image" content="https://camo.githubusercontent.com/60cc7a9b7b2cb08ac5cd4d28ac2a03795bb9ab30/68747470733a2f2f6c6572616e32646565706c6561726e6a617661776562746563682e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f736f6d6570686f746f2f2545362542362538382545362538312541462545382541452541342545382541462538312545372541302538312545382542462538372545372541382538422e706e67">
-<meta property="og:image" content="https://camo.githubusercontent.com/b3a74a8cabf7a22ec0fd2f73a9755d864519d71d/68747470733a2f2f6c6572616e32646565706c6561726e6a617661776562746563682e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f736f6d6570686f746f2f2545362539352542302545352541442539372545372541442542452545352539302538442545382542462538372545372541382538422e706e67">
-<meta property="og:updated_time" content="2019-05-20T06:24:23.450Z">
+<meta property="og:image" content="https://s2.ax1x.com/2019/08/16/mZeC0s.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/08/16/mZe0AI.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/08/16/mZedHA.jpg">
+<meta property="og:image" content="https://s2.ax1x.com/2019/08/19/m3ImFg.jpg">
+<meta property="og:updated_time" content="2019-08-19T12:24:19.228Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTPS中的TLS">
-<meta name="twitter:description" content="HTTPS中的TLSSSL与TLSSSL：(Secure Socket Layer)安全套接层。 TLS：(Transport Layer Security)传输层安全协议，是IETF在SSL3.0的基础上设计的协议。 从网络协议的角度理解HTTPS HTTP：HyperText Transfer Protocol 超文本传输协议HTTPS：Hypertext Transfer Protocol">
-<meta name="twitter:image" content="https://camo.githubusercontent.com/4e3af713377550421537b4dadd4945fceec04722/68747470733a2f2f6c6572616e32646565706c6561726e6a617661776562746563682e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f736f6d6570686f746f2f2545342542382538332545352542312538322e706e67">
+<meta name="twitter:title" content="TCP可靠传输和拥塞控制">
+<meta name="twitter:description" content="TCP可靠传输和拥塞控制机制TCP可靠传输数据流传输方式TCP数据一般分为：交互数据和成块数据，交互数据一般比较小，比如发送一个字节的交互数据，加上TCP数据段首部以及IP数据包首部，至少需要41个字节。 交互数据流传输互联网早期通信链路并不可靠，因此在链路层传输数据的时候要采取可靠的传输协议。其中最简单的为停止等待协议。传输层并不使用停止等待协议，但是传输交互数据流传输时采用nagle算法和该协">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/08/16/mZeC0s.png">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/20/HTTPS中的TLS/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/19/TCP可靠传输和拥塞控制/">
 
 
 
 
 
-  <title>HTTPS中的TLS | KeepForwarding</title>
+  <title>TCP可靠传输和拥塞控制 | KeepForwarding</title>
   
 
 
@@ -300,7 +300,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/20/HTTPS中的TLS/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/TCP可靠传输和拥塞控制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shine10076">
@@ -317,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTPS中的TLS</h1>
+          <h1 class="post-title" itemprop="name headline">TCP可靠传输和拥塞控制</h1>
         
 
         <div class="post-meta">
@@ -329,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-20T14:22:30+08:00">
-                2019-05-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T20:23:03+08:00">
+                2019-08-19
               </time>
             
 
@@ -389,87 +389,168 @@
       
 
       
-        <h3 id="HTTPS中的TLS"><a href="#HTTPS中的TLS" class="headerlink" title="HTTPS中的TLS"></a>HTTPS中的TLS</h3><h4 id="SSL与TLS"><a href="#SSL与TLS" class="headerlink" title="SSL与TLS"></a>SSL与TLS</h4><p>SSL：(Secure Socket Layer)安全套接层。</p>
-<p>TLS：(Transport Layer Security)传输层安全协议，是IETF在SSL3.0的基础上设计的协议。</p>
-<h4 id="从网络协议的角度理解HTTPS"><a href="#从网络协议的角度理解HTTPS" class="headerlink" title="从网络协议的角度理解HTTPS"></a>从网络协议的角度理解HTTPS</h4><p><img src="https://camo.githubusercontent.com/4e3af713377550421537b4dadd4945fceec04722/68747470733a2f2f6c6572616e32646565706c6561726e6a617661776562746563682e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f736f6d6570686f746f2f2545342542382538332545352542312538322e706e67" alt></p>
-<p>HTTP：HyperText Transfer Protocol 超文本传输协议<br>HTTPS：Hypertext Transfer Protocol Secure 超文本传输安全协议<br>TLS：位于 HTTP 和 TCP 之间的协议，其内部有 TLS握手协议、TLS记录协议<br>HTTPS 经由 HTTP 进行通信，但利用 TLS 来保证安全，即 HTTPS = HTTP + TLS</p>
-<a id="more"></a>
-<h4 id="从密码学角度理解HTTPS"><a href="#从密码学角度理解HTTPS" class="headerlink" title="从密码学角度理解HTTPS"></a>从密码学角度理解HTTPS</h4><p>HTTPS使用TLS保证安全，这里安全分为两部分，一是传输内容加密，二是服务端的身份认证。</p>
-<h5 id="TLS工作流程"><a href="#TLS工作流程" class="headerlink" title="TLS工作流程"></a>TLS工作流程</h5><p><img src="https://camo.githubusercontent.com/e28a26b73b7e71996534e7f20d82cd27831a818f/68747470733a2f2f6c6572616e32646565706c6561726e6a617661776562746563682e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f736f6d6570686f746f2f746c732545362542352538312545372541382538422e706e67" alt></p>
-<p>上图为服务端单向认证，还有C/S双向认证，流程类似，但是客户端也有自己的证书，并且发送给服务器进行认证。</p>
-<h5 id="密码基础"><a href="#密码基础" class="headerlink" title="密码基础"></a>密码基础</h5><ol>
-<li><p>伪随机数生成器</p>
-<p>没有真正意义上的随机数，作用主要用于生产对称密码的密钥，用于公钥密码生成密钥对。</p>
-</li>
-<li><p>消息认证码</p>
-<p>消息认证码：用于验证消息完整性和消息认证。（防止篡改和伪装）</p>
-<p><img src="https://camo.githubusercontent.com/60cc7a9b7b2cb08ac5cd4d28ac2a03795bb9ab30/68747470733a2f2f6c6572616e32646565706c6561726e6a617661776562746563682e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f736f6d6570686f746f2f2545362542362538382545362538312541462545382541452541342545382541462538312545372541302538312545382542462538372545372541382538422e706e67" alt></p>
+        <h3 id="TCP可靠传输和拥塞控制机制"><a href="#TCP可靠传输和拥塞控制机制" class="headerlink" title="TCP可靠传输和拥塞控制机制"></a>TCP可靠传输和拥塞控制机制</h3><h4 id="TCP可靠传输"><a href="#TCP可靠传输" class="headerlink" title="TCP可靠传输"></a>TCP可靠传输</h4><h5 id="数据流传输方式"><a href="#数据流传输方式" class="headerlink" title="数据流传输方式"></a>数据流传输方式</h5><p>TCP数据一般分为：交互数据和成块数据，交互数据一般比较小，比如发送一个字节的交互数据，加上TCP数据段首部以及IP数据包首部，至少需要41个字节。</p>
+<h5 id="交互数据流传输"><a href="#交互数据流传输" class="headerlink" title="交互数据流传输"></a>交互数据流传输</h5><p>互联网早期通信链路并不可靠，因此在链路层传输数据的时候要采取可靠的传输协议。其中最简单的为停止等待协议。传输层并不使用停止等待协议，但是传输交互数据流传输时采用nagle算法和该协议原理很类似。</p>
 <ol>
-<li>发送者与接收者事先共享秘钥</li>
-<li>发送者根据发送消息计算 MAC 值</li>
-<li>发送者发送消息和 MAC 值</li>
-<li>接收者根据接收到的消息计算 MAC 值</li>
-<li>接收者根据自己计算的 MAC 值与收到的 MAC 对比</li>
-<li>如果对比成功，说明消息完整，并来自与正确的发送者</li>
-</ol>
-</li>
-<li><p>数字签名</p>
-<p>消息认证码缺点是<strong>无法防止否认</strong>，因为共享密钥被client, server两端拥有，server可以伪造client发送给自己的消息，这时候就需要各自的密钥不被第二个知晓。</p>
-<p><img src="https://camo.githubusercontent.com/b3a74a8cabf7a22ec0fd2f73a9755d864519d71d/68747470733a2f2f6c6572616e32646565706c6561726e6a617661776562746563682e6f73732d636e2d6265696a696e672e616c6979756e63732e636f6d2f736f6d6570686f746f2f2545362539352542302545352541442539372545372541442542452545352539302538442545382542462538372545372541382538422e706e67" alt></p>
-</li>
-</ol>
+<li><p><strong>停止等待协议</strong></p>
+<p>每一次发送完一个分组就停止发送，等待对方确认。</p>
+<p><img src="https://s2.ax1x.com/2019/08/16/mZeC0s.png" alt="停止等待协议"></p>
+<p>发送放发送数据分组A，接收方接收到A后，向发送方确认数据，发送方收到A确认后继续发送数据分组B。</p>
+<p>数组分组在传输过程中发生错误时有两种情况：</p>
 <blockquote>
-<p>数字签名和消息认证码都不是为了加密，</p>
-<p>可以将单向散列函数获取的散列值的过程理解为使用md5摘要算法获取摘要的过程</p>
+<ol>
+<li>接收方收到错误数据直接丢弃</li>
+<li>数据分组在传输过程中丢失</li>
+</ol>
 </blockquote>
-<p>使用自己的私钥对自己所认可的消息生成一个该消息专属的签名，这就是数字签名，表明我承认该消息来自自己<br>注意：<strong>私钥用于加签，公钥用于解签，每个人都可以解签，查看消息的归属人</strong></p>
-<h5 id="公钥密码"><a href="#公钥密码" class="headerlink" title="公钥密码"></a>公钥密码</h5><p>公钥密码也叫非对称密码，由公钥和私钥组成，它是最开始是为了解决秘钥的配送传输安全问题，即，我们不配送私钥，只配送公钥，私钥由本人保管<br>它与数字签名相反，公钥密码的私钥用于解密、公钥用于加密，每个人都可以用别人的公钥加密，但只有对应的私钥才能解开密文</p>
-<p>client：明文 + 公钥 = 密文<br>server：密文 + 私钥 = 明文<br>注意：<strong>公钥用于加密，私钥用于解密，只有私钥的归属者，才能查看消息的真正内容</strong></p>
-<h5 id="证书"><a href="#证书" class="headerlink" title="证书"></a>证书</h5><p>证书：全称公钥证书（Public-Key Certificate, PKC）,里面保存着归属者的基本信息，以及证书过期时间、归属者的公钥，并由认证机构（Certification Authority, <strong>CA</strong>）施加数字签名，表明，某个认证机构认定该公钥的确属于此人</p>
-<h5 id="密码小结"><a href="#密码小结" class="headerlink" title="密码小结"></a>密码小结</h5><table>
+<p>这两种情况接收方都不会发送任何信息。发送方在一定时间内没有收到确认就会重传，这种叫超时重传。</p>
+<a id="more"></a>
+</li>
+<li><h5 id="nagle算法"><a href="#nagle算法" class="headerlink" title="nagle算法"></a>nagle算法</h5><p>在传输交互数据流一般用nagle算法。nagle算法要求在一个TCP连接上最多只能有一个未被确认的小分组。在该分组确认到达之前不能发送其他分组。</p>
+<p>在收到确认之后并不是立刻发送其他分组，TCP连接允许不存在数据分组。具体的nagle算法规则如下：</p>
+<blockquote>
+<ol>
+<li>缓存中数据长度达到最大报文长度时，允许 发送。</li>
+<li>缓存中数据长度达到发送窗口一半时，允许发送。</li>
+<li>报文首部FIN标志为1的时候允许发送。</li>
+<li>报文段首部设置了TCP_NODELAY选项，则允许发送。</li>
+<li>发生了超时，立即发送。</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h5 id="成块数据流传输"><a href="#成块数据流传输" class="headerlink" title="成块数据流传输"></a>成块数据流传输</h5><p>  成块数据流往往超过最大报文长度，要进行拆分之后再发送，交互数据碎片化的问题不会出现。成块数据是通过基于滑动窗口协议的连续ARQ协议完成的。</p>
+<ol>
+<li><h5 id="滑动窗口协议"><a href="#滑动窗口协议" class="headerlink" title="滑动窗口协议"></a>滑动窗口协议</h5><p>使用基于停止等待协议的nagle算法信道利用率太低。</p>
+<p>如果使用流水线传输，那么信到利用率会大幅提升，TCP采用滑动窗口协议来实现流水线传输。</p>
+<p><strong>滑动窗户协议</strong>是指数据发送方有一个发送窗口，发送窗口范围内的数据允许发送，随着接收方传来的确认信息以及通知的接收窗口的大小来动态调整发送窗口的起始位置以及大小。</p>
+</li>
+</ol>
+<p><img src="https://s2.ax1x.com/2019/08/16/mZe0AI.jpg" alt="img"></p>
+<blockquote>
+<p>​        窗口有三种情况：</p>
+<ol>
+<li>前沿向右移动，这种情况在数据发送并且被确认时</li>
+<li>后沿向右移动，允许发送更多数据。发生于接收窗口增大或者网络拥塞情况缓解。</li>
+<li>后沿向左移动，发生于接收方希望窗口缩小。  </li>
+</ol>
+</blockquote>
+<p>TCP要求接收方有累计确认功能，接收方不必立刻对收到的数据进行确认，这样可以减少传输开销。另外，在发送确认时也可以捎带上接收方要发送的数据。TCP标准规定确认推迟的时间不能超过0.5秒，如果收到一个具有最大报文长度的报文段，则必须隔一个报文段就发送一个确认。</p>
+<p>累计确认只针对按序到达的最后一个分组发送确认。表示这个分组已经全部到达。</p>
+<p>比如上图中序号5、6、7、9、10分组到达接收方，接收方发送的确认序号是8，即接收方没有收到序号8的分组，希望下次收到序号8的分组。而序号9、10分组虽然已经到达的事实，发送方并不知晓。</p>
+<p>这会导致一个问题：一旦发生超时重传的情况，发送方是否需要再次发送已经到达的数据？如果不需要，又该如何获知具体哪些数据已经到达？</p>
+<h5 id="后退N帧ARQ协议"><a href="#后退N帧ARQ协议" class="headerlink" title="后退N帧ARQ协议"></a>后退N帧ARQ协议</h5><p>发生超时重传时，后退N帧ARQ协议不考虑确认序号之后的分组是否已经发送到接收方，直接从确认序号开始重传之后的数据。</p>
+<h5 id="选择重传ARQ协议"><a href="#选择重传ARQ协议" class="headerlink" title="选择重传ARQ协议"></a>选择重传ARQ协议</h5><p>选择重传指接收方收到未按序排列的数据流时，通知发送方重传缺失的数据，而不是重传全部的数据。</p>
+<p>SR中窗口的大小必须小于等于分组序号的一半，不然很容易和新的分组混淆，接受法无法判断新传来的数据分组到底是上一个分组的数据还是新的分组的数据。</p>
+<p><img src="https://s2.ax1x.com/2019/08/16/mZedHA.jpg" alt="img"></p>
+<p>比如上图，收到了三个不连续的分组，这时候在TCP首部选项中加入”允许SACK“选项。在之后的TCP报文段增加SACK选项。</p>
+<h5 id="超时重传时间"><a href="#超时重传时间" class="headerlink" title="超时重传时间"></a>超时重传时间</h5><p>对于每一个连接，TCP管理4个不同的定时器：</p>
+<blockquote>
+<ol>
+<li>重传定时器：决定何时重传未被确认的数据分组</li>
+<li>坚持定时器：使窗口的大小信息保持不变</li>
+<li>保活定时器：检测i空闲连接的另一端是否崩溃或重启</li>
+<li>2MSL定时器：测量一个连接处于TIME_WAIT状态时间</li>
+</ol>
+</blockquote>
+<p>在超时重传的情况下，如果将超时重传的时间设置的太短，会出现很多不必要的重传，增大网络负荷；如果设置的时间太长，则使网络的空闲时间增大，降低传输效率。TCP采用一种自适应的算法来动态计算超时重传的时间。</p>
+<ol>
+<li><h5 id="报文段往返时间"><a href="#报文段往返时间" class="headerlink" title="报文段往返时间"></a>报文段往返时间</h5><p>一个报文段发出的时间和收到确认的时间差就是报文段的往返时间RTT。平滑的往返时间RTT_S是RTT的加权平均值。</p>
+</li>
+<li><h5 id="Karn算法"><a href="#Karn算法" class="headerlink" title="Karn算法"></a>Karn算法</h5><p>发送报文段后，在一定时间内没有收到确认。重传该报文段，之后收到确认报文。那么怎么确定确认报文是对哪个报文的确认？因为重传的报文和原报文完全相同，收到的确认报文也相同。那么报文段往返时间RTT是A还是B呢？<br>   在上述情况下，Karn提出一个算法：<strong>在计算加权平均RTT_S时，只要报文段重传了，就不采用其往返时间样本</strong>。这样的到的加权平均RTT_S和RTO就比较准确。</p>
+</li>
+</ol>
+<h5 id="可靠数据传输机制及其用途的总结"><a href="#可靠数据传输机制及其用途的总结" class="headerlink" title="可靠数据传输机制及其用途的总结"></a>可靠数据传输机制及其用途的总结</h5><table>
 <thead>
 <tr>
-<th>密码</th>
-<th>作用</th>
-<th style="text-align:right">组成</th>
+<th>机制</th>
+<th>用途</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>消息认证码</td>
-<td>确认消息的完整、并对消息的来源认证</td>
-<td style="text-align:right">共享秘钥+消息的散列值</td>
+<td>检验和</td>
+<td>用于检测在一个传输分组中的比特错误</td>
 </tr>
 <tr>
-<td>数字签名</td>
-<td>对消息的散列值签名</td>
-<td style="text-align:right">公钥+私钥+消息的散列值</td>
+<td>定时器</td>
+<td>用于检测超时/重传一个分组，因为该分组（或者ACK）在信道中丢失了。由于当一个分组延时但未丢失，或者一个分组已经被接收方收到但从接收方到发送方的ACK丢失时，可能产生超时事件，所以接收方可能会收到一个分组的多个冗余拷贝</td>
 </tr>
 <tr>
-<td>公钥密码</td>
-<td>解决秘钥的配送问题</td>
-<td style="text-align:right">公钥+私钥+消息</td>
+<td>序号</td>
+<td>用于为发送方流向接收方的数据分组按顺序编号。所接收分组的序号间的空隙可使该接收方检测出丢失的分组。具有相同序号的分组可是接受方检测出一个分组的冗余拷贝。</td>
 </tr>
 <tr>
-<td>证书</td>
-<td>解决公钥的归属问题</td>
-<td style="text-align:right">公钥密码中的公钥+数字签名</td>
+<td>确认</td>
+<td>接收方告知发送方分组被正确接受。确认报文通常携带被确认分组或者多个分组序号，确认可以是逐个或者累计的，取决于协议。</td>
+</tr>
+<tr>
+<td>否定确认</td>
+<td>接收方用于告知发送方某个分组未被正确的接收，否定确认报文通常携带者未被正确接收的分组的序号</td>
+</tr>
+<tr>
+<td>窗口</td>
+<td>发送方被限制仅发送指定范围内序号的分组。通过允许一次发送多个分组但未被确认。</td>
 </tr>
 </tbody>
 </table>
-<h5 id="TLS使用的密码技术"><a href="#TLS使用的密码技术" class="headerlink" title="TLS使用的密码技术"></a>TLS使用的密码技术</h5><ol>
-<li>伪随机数生成器：秘钥生成随机性，更难被猜测</li>
-<li>对称密码：对称密码使用的秘钥就是由伪随机数生成，相较于非对称密码，效率更高</li>
-<li>消息认证码：保证消息信息的完整性、以及验证消息信息的来源</li>
-<li>公钥密码：证书技术使用的就是公钥密码</li>
-<li>数字签名：验证证书的签名，确定由真实的某个 CA 颁发</li>
-<li>证书：解决公钥的真实归属问题，降低中间人攻击概率</li>
+<h4 id="TCP流量控制"><a href="#TCP流量控制" class="headerlink" title="TCP流量控制"></a>TCP流量控制</h4><h5 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h5><p>一条TCP连接的双方主机都为该连接设置了接收缓存，当该TCP连接接收正确，按序的字节后，它就将数据放入接收缓存。如果发送方发送数据太快而接收方读取速度缓慢，很容易使得缓存溢出。TCP为应用程序提供了 <strong>流量控制服务</strong>，来匹配接收方和发送法的速率。</p>
+<p>TCP通过让发送方维护一个接收窗口的变量来提供流量控制，用于告诉发送方接收方还有多少缓存。</p>
+<p>发送方轮流跟踪两个变量LastByteSent(最后一个发送序号)和LastByteAcked(最后一个确认序号),这两个变量的差值就是发送方到接收方之间未被确认的数据量，将未被确认的数据量控制在窗口大小以内就可以保证接收方缓存不会溢出。</p>
+<h5 id="流量控制死锁避免"><a href="#流量控制死锁避免" class="headerlink" title="流量控制死锁避免"></a>流量控制死锁避免</h5><p>当发送者收到一个窗口为0的应答，发送者便停止发送，等待接受者下一个应答，但是如果这个时候一个窗口不为0的应答在传输过程中丢失，发送者一直等待，而接受者认为发送者收到应答，也等待接受新数据，这样就产生了死锁。</p>
+<p>为了避免这样的情况，TCP使用了持续计数器，每当发送者收到一个零窗口的应答就启动计时器，时间一到就主动询问接收方窗口大小。若接收者仍然返回零窗口，则重置该计时器继续等待；若窗口不为0，则表示应答报文丢失了，此时重置发送窗口后开始发送，这样就避免了死锁的产生。</p>
+<h4 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h4><h5 id="拥塞控制和流量控制的区别"><a href="#拥塞控制和流量控制的区别" class="headerlink" title="拥塞控制和流量控制的区别"></a>拥塞控制和流量控制的区别</h5><p>拥塞控制：作用于网络 ，防止过多的数据注入到网络中，避免网络负载过大的情况</p>
+<p>流量控制：流量控制作用于接受者，控制发送者的发送速度从而使得接受者来得及接收，防止分组丢失。</p>
+<h5 id="端到端拥塞控制"><a href="#端到端拥塞控制" class="headerlink" title="端到端拥塞控制"></a>端到端拥塞控制</h5><p>在端到端拥塞控制方法中，网络层没有为运输层拥塞控制显式支持。</p>
+<p>TCP采用的方法就是让每一个发送方根据所感知到的网络拥塞程度来限制其向连接发送流量的速率。这需要解决三个问题</p>
+<ol>
+<li>TCP如何限制发送流量速率</li>
+<li>TCP如何感受网络的拥塞程度</li>
+<li>TCP采用什么算法来控制发送的速率</li>
 </ol>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol>
-<li>SSL加密发生在哪里：<a href="https://security.stackexchange.com/questions/19681/where-does-ssl-encryption-take-place" target="_blank" rel="noopener">https://security.stackexchange.com/questions/19681/where-does-ssl-encryption-take-place</a></li>
-<li>TLS工作流程：<a href="https://blog.csdn.net/ustccw/article/details/76691248" target="_blank" rel="noopener">https://blog.csdn.net/ustccw/article/details/76691248</a></li>
-<li>《图解密码技术》：<a href="https://book.douban.com/subject/26822106/" target="_blank" rel="noopener">https://book.douban.com/subject/26822106/</a> 豆瓣评分 9.5</li>
+<p>为了解决第一个问题，TCP定义了一个变量CongWin（拥塞窗口），一个发送方的未被确认的数据为Math.min(RcvWindow, Congwindow)。</p>
+<p>假设接受缓存足够大的情况下，未被确认数据量大小仅和ConWin有关，因此这个拥塞窗口的值就限制了发送方未被确认的数据量，因此间接的限制了发送方的发送速率。粗略考虑就是在一个RTT的时间内，发送方允许向该连接发送最多CongWin个字节数据。</p>
+<p>下面考虑第二个问题，TCP如何感知网络中是否出现拥塞。</p>
+<p>我们定义一个TCP发送方的丢包事件：要么出现超时，要么收到来自接受方的三个冗余ACK。因为网络中过度拥塞时，网络中路由器的缓存会溢出，导致TCP数据包被丢弃。丢弃数据包就会引发（超时或者冗余ACK）。</p>
+<h5 id="拥塞控制算法"><a href="#拥塞控制算法" class="headerlink" title="拥塞控制算法"></a>拥塞控制算法</h5><p>TCP感知到网络中的拥塞后，TCP要实现调节发送速率的算法，主要分为<strong>慢开始</strong>，<strong>拥塞避免</strong>，<strong>快重传</strong>，<strong>快恢复</strong></p>
+<ol>
+<li><p><strong>慢开始算法</strong></p>
+<p>发送方维持拥塞窗口ConWin的变量，慢开始算法的思路就是不要一开始就发送大量的数据，先探测一下网路的拥塞程度，具体步骤如下</p>
+<ul>
+<li>初始化拥塞窗口的大小为1，表示可以传送一个MSS大小的数据（MSS：最大报文长度）</li>
+<li>每次接受一个ACK，ConWIn大小加1</li>
+<li>每当过了一个往返时延RTT，ConWin大小直接翻倍</li>
+<li>当ConWin达到预先设置的阈值ssthresh时或者发生丢包事件，进入拥塞避免算法</li>
+</ul>
+</li>
+<li><h5 id="拥塞避免算法"><a href="#拥塞避免算法" class="headerlink" title="拥塞避免算法"></a>拥塞避免算法</h5><ul>
+<li><p>收到ACK时，线性增长ConWin</p>
+</li>
+<li><p>当网络出现丢包（收到重复的ACK或者超时）时，更新阈值ssthresh为原来的一半</p>
+</li>
+</ul>
+</li>
 </ol>
+<ol start="3">
+<li><p><strong>快重传算法</strong></p>
+<ul>
+<li>快速重传算法要求接收方收到一个失序的报文段之后就立即发出重复确认而不需要等到自己发送数据时捎带确认，一旦收到三个重复确认的ACK就立即重传而不需要等待超时计时器到期。</li>
+</ul>
+</li>
+<li><h5 id="快恢复算法"><a href="#快恢复算法" class="headerlink" title="快恢复算法"></a>快恢复算法</h5><ul>
+<li><p>配合快重传算法，当发送方收到连续三个重复的ACK，就执行乘法减小算法，把ssthresh门限减半，但是接下去并不执行满开始算法。</p>
+</li>
+<li><p>考虑网络拥塞就不会收到好几个重复的确认，发送方认为网络没有出现拥塞，此时不执行慢开始算法，而是执行拥塞避免算法。</p>
+<p><img src="https://s2.ax1x.com/2019/08/19/m3ImFg.jpg" alt></p>
+<p>注意：在采用快恢复算法时，慢开始算法只是在TCP连接建立时和网络出现超时时才使用。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p><a href="https://zhuanlan.zhihu.com/p/37379780" target="_blank" rel="noopener">TCP流量控制、拥塞控制</a></p>
+<p><a href="https://juejin.im/post/5c8f615ff265da612009824a" target="_blank" rel="noopener">TCP可靠传输原理</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/59656144" target="_blank" rel="noopener">TCP 拥塞控制算法</a></p>
+<p>《计算机网络-自顶向下方法（原书第四版）》</p>
 
       
     </div>
@@ -487,11 +568,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/http/" rel="tag"><i class="fa fa-tag"></i> http</a>
+            <a href="/tags/网络基础/" rel="tag"><i class="fa fa-tag"></i> 网络基础</a>
           
-            <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
-          
-            <a href="/tags/密码学/" rel="tag"><i class="fa fa-tag"></i> 密码学</a>
+            <a href="/tags/TCP/" rel="tag"><i class="fa fa-tag"></i> TCP</a>
           
         </div>
       
@@ -504,8 +583,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/19/Redis的使用场景/" rel="next" title="Redis的使用场景">
-                <i class="fa fa-chevron-left"></i> Redis的使用场景
+              <a href="/2019/07/13/深入理解Java的多态机制/" rel="next" title="深入理解Java的多态机制">
+                <i class="fa fa-chevron-left"></i> 深入理解Java的多态机制
               </a>
             
           </div>
@@ -513,10 +592,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/20/单链表相交的一系列问题/" rel="prev" title="单链表相交的一系列问题">
-                单链表相交的一系列问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -688,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS中的TLS"><span class="nav-number">1.</span> <span class="nav-text">HTTPS中的TLS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SSL与TLS"><span class="nav-number">1.1.</span> <span class="nav-text">SSL与TLS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从网络协议的角度理解HTTPS"><span class="nav-number">1.2.</span> <span class="nav-text">从网络协议的角度理解HTTPS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从密码学角度理解HTTPS"><span class="nav-number">1.3.</span> <span class="nav-text">从密码学角度理解HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#TLS工作流程"><span class="nav-number">1.3.1.</span> <span class="nav-text">TLS工作流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#密码基础"><span class="nav-number">1.3.2.</span> <span class="nav-text">密码基础</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#公钥密码"><span class="nav-number">1.3.3.</span> <span class="nav-text">公钥密码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#证书"><span class="nav-number">1.3.4.</span> <span class="nav-text">证书</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#密码小结"><span class="nav-number">1.3.5.</span> <span class="nav-text">密码小结</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TLS使用的密码技术"><span class="nav-number">1.3.6.</span> <span class="nav-text">TLS使用的密码技术</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">1.4.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP可靠传输和拥塞控制机制"><span class="nav-number">1.</span> <span class="nav-text">TCP可靠传输和拥塞控制机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP可靠传输"><span class="nav-number">1.1.</span> <span class="nav-text">TCP可靠传输</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数据流传输方式"><span class="nav-number">1.1.1.</span> <span class="nav-text">数据流传输方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#交互数据流传输"><span class="nav-number">1.1.2.</span> <span class="nav-text">交互数据流传输</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nagle算法"><span class="nav-number">1.1.3.</span> <span class="nav-text">nagle算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#成块数据流传输"><span class="nav-number">1.1.4.</span> <span class="nav-text">成块数据流传输</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#滑动窗口协议"><span class="nav-number">1.1.5.</span> <span class="nav-text">滑动窗口协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后退N帧ARQ协议"><span class="nav-number">1.1.6.</span> <span class="nav-text">后退N帧ARQ协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#选择重传ARQ协议"><span class="nav-number">1.1.7.</span> <span class="nav-text">选择重传ARQ协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#超时重传时间"><span class="nav-number">1.1.8.</span> <span class="nav-text">超时重传时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#报文段往返时间"><span class="nav-number">1.1.9.</span> <span class="nav-text">报文段往返时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Karn算法"><span class="nav-number">1.1.10.</span> <span class="nav-text">Karn算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可靠数据传输机制及其用途的总结"><span class="nav-number">1.1.11.</span> <span class="nav-text">可靠数据传输机制及其用途的总结</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP流量控制"><span class="nav-number">1.2.</span> <span class="nav-text">TCP流量控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#流量控制"><span class="nav-number">1.2.1.</span> <span class="nav-text">流量控制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#流量控制死锁避免"><span class="nav-number">1.2.2.</span> <span class="nav-text">流量控制死锁避免</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP拥塞控制"><span class="nav-number">1.3.</span> <span class="nav-text">TCP拥塞控制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#拥塞控制和流量控制的区别"><span class="nav-number">1.3.1.</span> <span class="nav-text">拥塞控制和流量控制的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#端到端拥塞控制"><span class="nav-number">1.3.2.</span> <span class="nav-text">端到端拥塞控制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拥塞控制算法"><span class="nav-number">1.3.3.</span> <span class="nav-text">拥塞控制算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拥塞避免算法"><span class="nav-number">1.3.4.</span> <span class="nav-text">拥塞避免算法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#快恢复算法"><span class="nav-number">1.3.5.</span> <span class="nav-text">快恢复算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文献"><span class="nav-number">1.4.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
             
 
           </div>
