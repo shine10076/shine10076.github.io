@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux系统命令总结--查看文件内容]]></title>
+    <url>%2F2019%2F09%2F19%2FLinux%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%2F</url>
+    <content type="text"><![CDATA[Linux系统命令总结–查看文件内容查看文件类型 file命令file命令file --help 1234567891011121314151617181920212223242526272829303132333435363738394041424344Usage: file [OPTION...] [FILE...]Determine type of FILEs. --help display this help and exit -v, --version output version information and exit -m, --magic-file LIST use LIST as a colon-separated list of magic number files -z, --uncompress try to look inside compressed files -Z, --uncompress-noreport only print the contents of compressed files -b, --brief do not prepend filenames to output lines -c, --checking-printout print the parsed form of the magic file, use in conjunction with -m to debug a new magic file before installing it -e, --exclude TEST exclude TEST from the list of test to be performed for file. Valid tests are: apptype, ascii, cdf, compress, elf, encoding, soft, tar, text, tokens -f, --files-from FILE read the filenames to be examined from FILE -F, --separator STRING use string as separator instead of `:' -i, --mime output MIME type strings (--mime-type and --mime-encoding) --apple output the Apple CREATOR/TYPE --extension output a slash-separated list of extensions --mime-type output the MIME type --mime-encoding output the MIME encoding -k, --keep-going don't stop at the first match -l, --list list magic strength -L, --dereference follow symlinks (default if POSIXLY_CORRECT is set) -h, --no-dereference don't follow symlinks (default if POSIXLY_CORRECT is not set) (default) -n, --no-buffer do not buffer output -N, --no-pad do not pad output -0, --print0 terminate filenames with ASCII NUL -p, --preserve-date preserve access times on files -P, --parameter set file engine parameter limits indir 15 recursion limit for indirection name 30 use limit for name/use magic elf_notes 256 max ELF notes processed elf_phnum 128 max ELF prog sections processed elf_shnum 32768 max ELF sections processed -r, --raw don't translate unprintable chars to \ooo -s, --special-files treat special (block/char devices) files as ordinary ones -C, --compile compile file specified by -m -d, --debug print debugging messages file命令主要用来查看文件的类型。 | 参数 | 作用 || —- | ———————————————————— || -b | 结果不输出文件名 || -z | 尝试解压压缩文件 || -f | 指定名称文件，其中内容有一个或者多个文件名称时，依序辨识这些文件 || -L | 直接显示符号链接指向的文件 || -v | 显示版本信息 || | || | | 查看文件内容 cat命令 cat --help 显示cat命令帮助 1234567891011121314151617Usage: cat [OPTION]... [FILE]...Concatenate FILE(s) to standard output.With no FILE, or when FILE is -, read standard input. -A, --show-all equivalent to -vET -b, --number-nonblank number nonempty output lines, overrides -n -e equivalent to -vE -E, --show-ends display $ at end of each line -n, --number number all output lines -s, --squeeze-blank suppress repeated empty output lines -t equivalent to -vT -T, --show-tabs display TAB characters as ^I -u (ignored) -v, --show-nonprinting use ^ and M- notation, except for LFD and TAB --help display this help and exit --version output version information and exit cat相关命令 12345678910111213141516171819202122232425262728293031323334353637#查看文件$ cat test.shecho date;#-n参数给所有行加上行号$ cat -n test.sh 1 echo date;#只给有文本的行加上行号，可以用-b参数$ cat -b test.sh 1 echo date; 2 echo time; #如果不想出现制表符，可以用-T参数，-T参数会用^I字符组合去替换文中的所有制表符$ cat -T test.shecho date;echo time;#使用-s参数来去除多余的空行，原来文件之间有多个空行$ cat -s test.shecho date;echo time;#使用-e参数来使得每一行的末尾都以$结尾$ cat -e test.shecho date;$$$$$$$$echo time;$ more命令cat的缺陷在于一旦运行就无法控制后面操作，为了解决这个问题，开发人员编写了more命令。more命令会显示文本文件的内容，但是会在显示每页数据之后停下来。 more --help 12345678910111213141516Usage: more [options] &lt;file&gt;...A file perusal filter for CRT viewing.Options: -d display help instead of ringing bell -f count logical rather than screen lines -l suppress pause after form feed -c do not scroll, display text and clean line ends -p do not scroll, clean screen and display text -s squeeze multiple blank lines into one -u suppress underlining -&lt;number&gt; the number of lines per screenful +&lt;number&gt; display file beginning from line number +/&lt;string&gt; display file beginning from search string match more命令的相关参数 123456789# more命令的相关参数,显示相关帮助信息more -d test.sh...222222--More--(16%)[Press space to continue, 'q' to quit.]# more命令-f参数... less命令less 命令实际上是more命令的升级版（名称由俗语less is more得来）， 查看部分文件 tail命令tail命令tail --help 1234567891011121314151617181920212223242526272829303132Usage: tail [OPTION]... [FILE]...Print the last 10 lines of each FILE to standard output.With more than one FILE, precede each with a header giving the file name.With no FILE, or when FILE is -, read standard input.Mandatory arguments to long options are mandatory for short options too. -c, --bytes=[+]NUM output the last NUM bytes; or use -c +NUM to output starting with byte NUM of each file -f, --follow[=&#123;name|descriptor&#125;] output appended data as the file grows; an absent option argument means 'descriptor' -F same as --follow=name --retry -n, --lines=[+]NUM output the last NUM lines, instead of the last 10; or use -n +NUM to output starting with line NUM --max-unchanged-stats=N with --follow=name, reopen a FILE which has not changed size after N (default 5) iterations to see if it has been unlinked or renamed (this is the usual case of rotated log files); with inotify, this option is rarely useful --pid=PID with -f, terminate after process ID, PID dies -q, --quiet, --silent never output headers giving file names --retry keep trying to open a file if it is inaccessible -s, --sleep-interval=N with -f, sleep for approximately N seconds (default 1.0) between iterations; with inotify and --pid=P, check process P at least once every N seconds -v, --verbose always output headers giving file names -z, --zero-terminated line delimiter is NUL, not newline --help display this help and exit --version output version information and exit tail命令：显示文件最后几行的内容。默认显示文件末尾10行。 比如我们创建了一个包含20行文本的文本文件。使用cat命令显示该文件的全部内容如下： 12345678910111213141516171819202122$ cat log_fileline1line2line3line4line5Hello World - line 6line7line8line9line10line11Hello again - line 12line13line14line15Sweet - line16line17line18line19Last line - line20$ 现在显示的是整个文件，使用tail命令浏览文件最后10行的效果： 123456789101112$ tail log_fileline11Hello again - line 12line13line14line15Sweet - line16line17line18line19Last line - line20$ 可以向tail命令加入-n参数来修改所显示的行数。下面的例子中，通过加入-n 2使tail命令只显示文件的最后两行。 1234$ tail -n 2 log_fileline19Last line - line20$ 还可以在通过tail命令 加号显示某行之后的行数 123456789101112$ tail -n +10 log_fileline10line11Hello again - line 12line13line14line15Sweet - line16line17line18line19Last line - line20 -f参数是tail命令的一个突出特性，允许你在其他进程中使用该文件时查看文件的内容。tail会保持活动状态，并且不断的显示添加文件中的内容。 head命令首先通过head --help来查看head命令的使用方法 123456789101112131415161718Usage: head [OPTION]... [FILE]...Print the first 10 lines of each FILE to standard output.With more than one FILE, precede each with a header giving the file name.With no FILE, or when FILE is -, read standard input.Mandatory arguments to long options are mandatory for short options too. -c, --bytes=[-]NUM print the first NUM bytes of each file; with the leading '-', print all but the last NUM bytes of each file -n, --lines=[-]NUM print the first NUM lines instead of the first 10; with the leading '-', print all but the last NUM lines of each file -q, --quiet, --silent never print headers giving file names -v, --verbose always print headers giving file names -z, --zero-terminated line delimiter is NUL, not newline --help display this help and exit --version output version information and exit head命令查看文件的前10行 123456789101112$ head log_fileline1line2line3line4line5Hello World - line 6line7line8line9line10$ 也可以使用参数-n 来指定显示的行数,比如head -n 5 log_file显示log_file的前5行 123456$ head -n 5 log_fileline1line2line3line4line5 也可以通过添加减号，指定不显示最后几行，比如head -n -5 log_file 12345678910111213141516$ head -n -5 log_fileline1line2line3line4line5Hello World - line 6line7line8line9line10line11Hello again - line 12line13line14line15 一般文件头不会发生变化，所以没有-f参数 head和tail命令的组合使用比如你想显示某个文件的第10行，我们可以组合使用head和tail命令 12$ tail -n +10 log_file |head -n 1line10 再比如从第11行显示，但是不包括最后三行 12345678$ head -n -3 log_file | tail -n +11line11Hello again - line 12line13line14line15Sweet - line16line17 再比如显示前20行，但是从第11行开始 1234567891011$ head -n 20 log_file | tail -n +11line11Hello again - line 12line13line14line15Sweet - line16line17line18line19Last line - line20 可以看出，组合head和tail命令可以产生更加强大的功能。 参考文献《Linux命令行和shell脚本编程大全》]]></content>
+      <categories>
+        <category>操作系统基础</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux硬链接和软链接]]></title>
     <url>%2F2019%2F08%2F30%2FLinux%E7%A1%AC%E9%93%BE%E6%8E%A5%E5%92%8C%E8%BD%AF%E9%93%BE%E6%8E%A5%2F</url>
     <content type="text"><![CDATA[Linux连接概念linux的链接分为两种，一种被称为硬链接（Hard Linx），另一种被称为符号链接（Symbolic Link）。默认情况下，ln命令产生硬链接。 什么是链接链接简单说是一种文件共享的方式，是POSIX中的概念，主流文件系统都支持连接文件。 链接的作用链接可以简单的理解为windows中常见的快捷方式， Linux中常用它来解决一些库版本的问题，通常也会将一些目录层次较深的文件链接到一个更加容易访问的目录中。在这些用途上，我们通常会使用软链接（也成为符号链接）。 inode定义inode指的是Linux系统中用作数据索引的标识符。 inode指示了一个文件的基本信息：inode编号，修改时间，文件位置等。 如同同一本书的目录，会直接告诉你想看的章节在第几页。Linux和书不同的是，Linux文件存取是以块为单位的。 操作系统在读取硬盘时，会一次性读取一个块，而inode就告诉了文件位于哪个块，于是系统就会从这个块开始读取内容，我们就可以看出这个文件的内容。 在系统内部，打开一个文件分为三步： 系统找到文件名对应的inode号 通过inode号，获取inode信息 根据inode信息，找到文件数据所在的块，读取内容。 inode内容基本信息： 文件字节数 inode编号 文件拥有者Uid 文件所属group的Gid 文件的读，写，执行权限 文件的时间戳： change:上次变动时间 modify：文件内容上一次变动时间 access：文件上一次打开的时间 链接数量：即有多少文件名指向这个inode 文件数据块的位置 硬链接硬链接通过索引节点来进行连接。在Linux的文件系统中，保存在磁盘分区中的文件不管什么类型都分配一个inode。 Linux中，多个文件名指向同一个索引节点是存在的，比如：A是B的硬链接，则A的目录项的inode节点号与B的目录项的inode节点号相同。即一个inode节点对应两个不同的文件名，两个文件名指向同一个文件。A和B对文件系统来说是完全平等的，删除任何一个不会影响另一个访问。 硬连接的作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止“误删”的功能。 只删除一个连接并不影响索引节点本身和其它的连接，只有当最后一个连接被删除后，文件的数据块及目录的连接才会被释放。也就是说，文件真正删除的条件是与之相关的所有硬连接文件均被删除。 软链接另外一种链接称为符号链接，也叫软链接，类似于Windows的快捷方式。实际上是特殊的文件，在符号链接中，文件实际上是一个文本文件，包含另一个文件的位置信息。比如A是B的软链接，A 的目录项中的 inode 节点号与 B 的目录项中的 inode 节点号不相同，A 和 B 指向的是两个不同的 inode，继而指向两块不同的数据块。但是 A 的数据块中存放的只是 B 的路径名（可以根据这个找到 B 的目录项）。A 和 B 之间是“主从”关系，如果 B 被删除了，A 仍然存在（因为两个是不同的文件），但指向的是一个无效的链接。 软硬链接的不同 本质不同：硬连接指向同一个文件，而软连接指向的不是同一个文件 删除时：硬连接不受影响，软连接失效 创建链接时：创建硬链接链接数加1，创建软链接连接数不变 跨分区：硬链接不可以跨分区，软链接可以跨分区 目录是否可以创建链接：硬链接不可以对目录创建，软链接可以对目录创建 硬连接的inode号相同，软链接inode号不同 参考文献linux链接概念 理解Linux的硬链接与软链接 深入讲解 linux 中 inode、硬链接、软链接的原理]]></content>
@@ -144,9 +156,9 @@
     <url>%2F2019%2F05%2F21%2FInnoDB%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84%2F</url>
     <content type="text"><![CDATA[InnoDB体系架构 InnoDB是一个单进程多线程的模型。 InnoDB存储引擎分为多个内存块，可以认为这些内存块组成了一个大的内存池，负责： 维护所有进程/线程需要访问的多个内部数据结构。 缓存磁盘中的数据，方便快速的读取，同时对磁盘文件的数据修改之前在这里缓存 重做日志(redo log)缓冲 …. 后台线程的作用是负责刷新内存池中的数据，保证缓冲池中的内存缓存是最近的数据。 多线程 masterThread核心后台线程，负责将缓冲池中数据异步刷新到磁盘，保证数据一致性。包括脏页刷新，合并插入缓冲等 IO ThreadInnoDB大量使用了AIO(异步IO)来处理写IO请求，极大提升数据库性能，IO Thread的主要工作就是负责这些IO请求的回调。 Pruge Thread事务被提交后，其undolog可能不再需要，因此Pruge Thread来回收已经使用并分配的undo页。 Page Cleaner ThreadPage Cleaner Thread作用是将脏页刷新放到单独的线程中操作。 脏页：所谓脏数据是指内存中的数据没有刷新到非易失存储设备上，包括但不限于更新、插入和删除等操作都会产生脏数据。 内存 缓冲池​ InnoDB存储引擎基于磁盘存储，其中的记录按照页的方式进行管理，由于CPU速度和磁盘速度差距大，基于磁盘的数据库系统通常使用缓冲池来提升整体性能。 ​ 缓冲池是一块内存区域，在数据库中进行读取页的操作，首先将磁盘中读到的页存放到缓冲池中，下一次再读取相同页时，判断是否在缓冲池中，在直接读取该页，否则从磁盘读。 ​ 对于数据库中页修改操作，首先修改缓冲池中的页，然后再以一定的频率刷新回磁盘。 LRU List Free List和Flush List​ 数据库中缓冲池通过LRU(Latest Recent Used)来管理内存的。但InnoDB对LRU算法做了一定的改进，新增了一个midpoint位置，新读取到的点放入midPoint位置。（默认为5/8处） 若直接用原始的LRU算法，那么直接读取的页将放到LRU列表首部，那么某些SQL操作会使缓冲池页被刷新出，从而影响缓冲池效率。 ​ FreeList:在数据库刚启动时，LRU列表是空的，此时现在FreeList存放页 ​ FlushList:脏页存放于Flush列表和LRU列表中，Flush列表用于管理脏页刷新回磁盘。 重做日志缓冲InnoDB引擎首先将redo log存放到缓冲区，然后按照一定的频率刷新到重做日志文件。 checkPoint技术​ checkPoint解决以下问题 缩短数据库恢复时间 缓冲池不够用时将脏页刷新回磁盘 重做日志不可用时，刷新脏页]]></content>
       <tags>
+        <tag>数据库基础</tag>
         <tag>InnoDB</tag>
         <tag>MySQL</tag>
-        <tag>数据库基础</tag>
       </tags>
   </entry>
   <entry>
@@ -182,8 +194,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>数据库基础</tag>
         <tag>Redis</tag>
+        <tag>数据库基础</tag>
         <tag>应用场景</tag>
       </tags>
   </entry>
@@ -195,8 +207,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>数据库基础</tag>
         <tag>Redis</tag>
+        <tag>数据库基础</tag>
         <tag>持久化</tag>
       </tags>
   </entry>
@@ -208,8 +220,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>数据库基础</tag>
         <tag>Redis</tag>
+        <tag>数据库基础</tag>
         <tag>数据结构</tag>
       </tags>
   </entry>
@@ -221,8 +233,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>数据库基础</tag>
         <tag>Redis</tag>
+        <tag>数据库基础</tag>
         <tag>数据结构</tag>
       </tags>
   </entry>
@@ -234,8 +246,8 @@
         <category>数据库基础</category>
       </categories>
       <tags>
-        <tag>数据库基础</tag>
         <tag>Redis</tag>
+        <tag>数据库基础</tag>
         <tag>数据结构</tag>
       </tags>
   </entry>
