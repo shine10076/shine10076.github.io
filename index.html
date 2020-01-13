@@ -291,6 +291,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/13/消息队列以及RabbitMQ使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shine10076">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shine10076的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/13/消息队列以及RabbitMQ使用/" itemprop="url">消息队列以及RabbitMQ使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-13T21:32:36+08:00">
+                2020-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h1><p>消息队列思维导图</p>
+<p><img src="https://s2.ax1x.com/2019/12/31/l1hzCR.png" alt></p>
+<h2 id="消息队列的概念"><a href="#消息队列的概念" class="headerlink" title="消息队列的概念"></a>消息队列的概念</h2><p>消息队列中间件是分布式系统中重要的组件，主要解决应用耦合、异步消息、流量削锋等问题。实现高性能、高可用、可伸缩和最终一致性架构。是大型分布式系统不可缺少的中间件。</p>
+<p>目前在生产环境，使用较多的消息队列有Kafka、ActiveMQ、RabbitMQ、RocketMQ。</p>
+<h2 id="为什么使用消息队列"><a href="#为什么使用消息队列" class="headerlink" title="为什么使用消息队列"></a>为什么使用消息队列</h2><p>主要有三个业务场景：<strong>解耦，异步，削峰</strong></p>
+<h3 id="解耦"><a href="#解耦" class="headerlink" title="解耦"></a>解耦</h3><p>如果有多个系统需要数据，通过一个发布/订阅模型来和其他系统解耦。</p>
+<p><img src="https://s2.ax1x.com/2019/12/31/l1LEa6.png" alt="l1LEa6.png"></p>
+<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>场景: A系统接口一个请求，需要在本地写入数据库，还需要在BCD三个系统写入。用户等待时间为ABCD四个系统写入时间总和。</p>
+<p>使用消息队列后，A系统只要把写入消息放到队列中即可返回，写入留给队列慢慢处理。</p>
+<h3 id="削峰"><a href="#削峰" class="headerlink" title="削峰"></a>削峰</h3><p>A系统在某段时间内，比如高峰期并发请求超出系统处理能力的上限。</p>
+<p>这个时候可以使用MQ，将消息先存到队列中，等待系统慢慢处理，将高峰期的请求分摊到低峰期。</p>
+<p>比如一个IOT系统传感器每秒传入几千条数据，但是数据库写入速度有限，此时</p>
+<p>消息队列的优缺点</p>
+<ul>
+<li>系统可用性降低：依赖于MQ，MQ挂了消息队列将不可用。</li>
+<li>系统复杂度提高，考虑：消息有没有被重复消费，处理消息丢失，保证消息传递的正确性。</li>
+<li>一致性问题：A系统处理完返回后，万一BC系统有写入不成功的情况，数据就产生不一致。</li>
+</ul>
+<h3 id="广播"><a href="#广播" class="headerlink" title="广播"></a>广播</h3><p>基本功能之一，进行广播。没有消息队列的话，每次新增一个消息接入方都需要联调一次新接口。使用消息队列的话，就只需要关心消息是否送达到消息队列中去。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/13/消息队列以及RabbitMQ使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/23/Java8新特性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -894,171 +1058,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/19/TCP可靠传输和拥塞控制/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Shine10076">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/blog-logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shine10076的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/19/TCP可靠传输和拥塞控制/" itemprop="url">TCP可靠传输和拥塞控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T20:23:03+08:00">
-                2019-08-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络基础/" itemprop="url" rel="index">
-                    <span itemprop="name">网络基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="TCP可靠传输和拥塞控制机制"><a href="#TCP可靠传输和拥塞控制机制" class="headerlink" title="TCP可靠传输和拥塞控制机制"></a>TCP可靠传输和拥塞控制机制</h3><h4 id="TCP可靠传输"><a href="#TCP可靠传输" class="headerlink" title="TCP可靠传输"></a>TCP可靠传输</h4><h5 id="数据流传输方式"><a href="#数据流传输方式" class="headerlink" title="数据流传输方式"></a>数据流传输方式</h5><p>TCP数据一般分为：交互数据和成块数据，交互数据一般比较小，比如发送一个字节的交互数据，加上TCP数据段首部以及IP数据包首部，至少需要41个字节。</p>
-<h5 id="交互数据流传输"><a href="#交互数据流传输" class="headerlink" title="交互数据流传输"></a>交互数据流传输</h5><p>互联网早期通信链路并不可靠，因此在链路层传输数据的时候要采取可靠的传输协议。其中最简单的为停止等待协议。传输层并不使用停止等待协议，但是传输交互数据流传输时采用nagle算法和该协议原理很类似。</p>
-<ol>
-<li><p><strong>停止等待协议</strong></p>
-<p>每一次发送完一个分组就停止发送，等待对方确认。</p>
-<p><img src="https://s2.ax1x.com/2019/08/16/mZeC0s.png" alt="停止等待协议"></p>
-<p>发送放发送数据分组A，接收方接收到A后，向发送方确认数据，发送方收到A确认后继续发送数据分组B。</p>
-<p>数组分组在传输过程中发生错误时有两种情况：</p>
-<blockquote>
-<ol>
-<li>接收方收到错误数据直接丢弃</li>
-<li>数据分组在传输过程中丢失</li>
-</ol>
-</blockquote>
-<p>这两种情况接收方都不会发送任何信息。发送方在一定时间内没有收到确认就会重传，这种叫超时重传。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/08/19/TCP可靠传输和拥塞控制/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </li></ol></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1106,7 +1110,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1117,7 +1121,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1128,7 +1132,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
