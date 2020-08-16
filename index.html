@@ -291,6 +291,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/16/Springboot-websocket实现服务器消息推送/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shine10076">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shine10076的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/16/Springboot-websocket实现服务器消息推送/" itemprop="url">Springboot+websocket实现服务器消息推送</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-16T16:08:09+08:00">
+                2020-08-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Springboot-webSocket实现服务器消息推送"><a href="#Springboot-webSocket实现服务器消息推送" class="headerlink" title="Springboot + webSocket实现服务器消息推送"></a>Springboot + webSocket实现服务器消息推送</h2><h3 id="WebSocket协议"><a href="#WebSocket协议" class="headerlink" title="WebSocket协议"></a>WebSocket协议</h3><h4 id="为什么需要WebSocket协议"><a href="#为什么需要WebSocket协议" class="headerlink" title="为什么需要WebSocket协议"></a>为什么需要WebSocket协议</h4><p>因为HTTP协议有一个缺陷：通信只能由客户端发起。</p>
+<p>这种单向请求的特点，注定了服务器如果有连续的变化，客户端想要获知就非常麻烦。我们只能用轮询的方式来了解服务器有没有最新的消息。</p>
+<h4 id="websocket协议简介"><a href="#websocket协议简介" class="headerlink" title="websocket协议简介"></a>websocket协议简介</h4><p>WebSocket协议最大特点就是服务器可以主动向客户端推送消息，客户端也可以主动向服务器发送消息。是服务器推送技术的一种。</p>
+<p><img src="https://s2.ax1x.com/2019/12/24/lCcxUK.png" alt="lCcxUK.png"></p>
+<p>对比HTTP协议，WeSocket协议使得长连接变成了一个真正的长连接。通过第一个HTTP request建立了TCP连接之后，之后的交换数据都不需要再发HTTP request。并且和HTTP-keep-alive的区别在于WebSocket协议省去了大量的HTTP-Header信息，使得信息的传输更加的高效。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/16/Springboot-websocket实现服务器消息推送/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/RabbitMQ高级特性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -916,155 +1077,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/19/Linux系统命令总结-查看文件内容/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Shine10076">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/blog-logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shine10076的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/19/Linux系统命令总结-查看文件内容/" itemprop="url">Linux系统命令总结--查看文件内容</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-19T19:01:48+08:00">
-                2019-09-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/操作系统基础/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Linux系统命令总结–查看文件内容"><a href="#Linux系统命令总结–查看文件内容" class="headerlink" title="Linux系统命令总结–查看文件内容"></a>Linux系统命令总结–查看文件内容</h2><h3 id="查看文件类型"><a href="#查看文件类型" class="headerlink" title="查看文件类型"></a>查看文件类型</h3><ol>
-<li><h5 id="file命令"><a href="#file命令" class="headerlink" title="file命令"></a>file命令</h5><p>file命令<code>file --help</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">Usage: file [OPTION...] [FILE...]</span><br><span class="line">Determine type of FILEs.</span><br><span class="line"></span><br><span class="line">      --help                 display this help and exit</span><br><span class="line">  -v, --version              output version information and exit</span><br><span class="line">  -m, --magic-file LIST      use LIST as a colon-separated list of magic</span><br><span class="line">                               number files</span><br><span class="line">  -z, --uncompress           try to look inside compressed files</span><br><span class="line">  -Z, --uncompress-noreport  only print the contents of compressed files</span><br><span class="line">  -b, --brief                do not prepend filenames to output lines</span><br><span class="line">  -c, --checking-printout    print the parsed form of the magic file, use in</span><br><span class="line">                               conjunction with -m to debug a new magic file</span><br><span class="line">                               before installing it</span><br><span class="line">  -e, --exclude TEST         exclude TEST from the list of test to be</span><br><span class="line">                               performed for file. Valid tests are:</span><br><span class="line">                               apptype, ascii, cdf, compress, elf, encoding,</span><br><span class="line">                               soft, tar, text, tokens</span><br><span class="line">  -f, --files-from FILE      read the filenames to be examined from FILE</span><br><span class="line">  -F, --separator STRING     use string as separator instead of `:'</span><br><span class="line">  -i, --mime                 output MIME type strings (--mime-type and</span><br><span class="line">                               --mime-encoding)</span><br><span class="line">      --apple                output the Apple CREATOR/TYPE</span><br><span class="line">      --extension            output a slash-separated list of extensions</span><br><span class="line">      --mime-type            output the MIME type</span><br><span class="line">      --mime-encoding        output the MIME encoding</span><br><span class="line">  -k, --keep-going           don't stop at the first match</span><br><span class="line">  -l, --list                 list magic strength</span><br><span class="line">  -L, --dereference          follow symlinks (default if POSIXLY_CORRECT is set)</span><br><span class="line">  -h, --no-dereference       don't follow symlinks (default if POSIXLY_CORRECT is not set) (default)</span><br><span class="line">  -n, --no-buffer            do not buffer output</span><br><span class="line">  -N, --no-pad               do not pad output</span><br><span class="line">  -0, --print0               terminate filenames with ASCII NUL</span><br><span class="line">  -p, --preserve-date        preserve access times on files</span><br><span class="line">  -P, --parameter            set file engine parameter limits</span><br><span class="line">                               indir        15 recursion limit for indirection</span><br><span class="line">                               name         30 use limit for name/use magic</span><br><span class="line">                               elf_notes   256 max ELF notes processed</span><br><span class="line">                               elf_phnum   128 max ELF prog sections processed</span><br><span class="line">                               elf_shnum 32768 max ELF sections processed</span><br><span class="line">  -r, --raw                  don't translate unprintable chars to \ooo</span><br><span class="line">  -s, --special-files        treat special (block/char devices) files as</span><br><span class="line">                             ordinary ones</span><br><span class="line">  -C, --compile              compile file specified by -m</span><br><span class="line">  -d, --debug                print debugging messages</span><br></pre></td></tr></table></figure>
-<p>file命令主要用来查看文件的类型。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/09/19/Linux系统命令总结-查看文件内容/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </li></ol></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1117,7 +1129,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1128,7 +1140,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1139,7 +1151,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
